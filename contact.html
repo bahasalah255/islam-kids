@@ -14,11 +14,12 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/theme-modern.css">
 </head>
-<body>
+<body class="contact-page">
     
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-modern">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <span>🌙</span> Ramadan Kids Corner
@@ -67,9 +68,9 @@
     <!-- Contact Form Section -->
     <section class="section">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-start">
                 <!-- Contact Form -->
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-4 contact-column">
                     <div class="card p-4">
                         <h2 class="mb-4">📝 Envoie-nous un Message</h2>
                         <p class="mb-4">
@@ -149,23 +150,23 @@
                 </div>
 
                 <!-- Contact Info & Map -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 contact-column">
                     <!-- Contact Info Cards -->
-                    <div class="card mb-4 p-4" style="background: linear-gradient(135deg, #F9C74F 0%, #F9844A 100%); color: white;">
+                    <div class="card mb-4 p-4 contact-highlight-card">
                         <h3 class="mb-4">📞 Nos Coordonnées</h3>
-                        <div class="mb-3">
+                        <div class="mb-3 contact-detail">
                             <h5><i class="bi bi-envelope-fill me-2"></i> Email</h5>
-                            <p>contact@ramadankids.com</p>
+                            <p><a href="mailto:contact@ramadankids.com">contact@ramadankids.com</a></p>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 contact-detail">
                             <h5><i class="bi bi-telephone-fill me-2"></i> Téléphone</h5>
-                            <p>+33 1 23 45 67 89</p>
+                            <p><a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 contact-detail">
                             <h5><i class="bi bi-geo-alt-fill me-2"></i> Adresse</h5>
                             <p>123 Rue du Ramadan<br>75001 Paris, France</p>
                         </div>
-                        <div>
+                        <div class="contact-detail">
                             <h5><i class="bi bi-clock-fill me-2"></i> Horaires</h5>
                             <p>Lundi - Vendredi : 9h - 18h<br>
                             Samedi - Dimanche : 10h - 16h</p>
@@ -175,30 +176,40 @@
                     <!-- Social Media -->
                     <div class="card p-4 mb-4">
                         <h3 class="mb-3">🌟 Suis-nous sur les Réseaux</h3>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="#" class="btn btn-primary" style="min-width: 120px;">
+                        <div class="contact-social-grid">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn social-link-btn social-facebook" aria-label="Facebook">
                                 <i class="bi bi-facebook me-2"></i> Facebook
                             </a>
-                            <a href="#" class="btn btn-danger" style="min-width: 120px; background-color: #E4405F; border: none;">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn social-link-btn social-instagram" aria-label="Instagram">
                                 <i class="bi bi-instagram me-2"></i> Instagram
                             </a>
-                            <a href="#" class="btn btn-info" style="min-width: 120px; background-color: #1DA1F2; border: none;">
+                            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="btn social-link-btn social-twitter" aria-label="Twitter">
                                 <i class="bi bi-twitter me-2"></i> Twitter
                             </a>
-                            <a href="#" class="btn btn-danger" style="min-width: 120px; background-color: #FF0000; border: none;">
+                            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="btn social-link-btn social-youtube" aria-label="YouTube">
                                 <i class="bi bi-youtube me-2"></i> YouTube
                             </a>
                         </div>
                     </div>
 
-                    <!-- Map -->
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9914406081493!2d2.292292615674934!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fec70fb1f8d%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <!-- Map / Localisation -->
+                    <div class="card p-4 location-card">
+                        <h3 class="mb-3">📍 Notre Localisation</h3>
+                        <p class="mb-3">Retrouve-nous facilement au centre de Paris.</p>
+                        <div class="map-container mb-3">
+                            <iframe 
+                                src="https://www.google.com/maps?q=Paris%2C%20France&output=embed" 
+                                title="Localisation Ramadan Kids Corner"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="location-actions">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Paris%2C%20France" target="_blank" rel="noopener noreferrer" class="btn btn-warning w-100">
+                                <i class="bi bi-geo-alt-fill me-2"></i> Ouvrir dans Google Maps
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,7 +217,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section" style="background-color: white;">
+    <section class="section surface-panel">
         <div class="container">
             <h2 class="section-title">❓ Questions Fréquentes</h2>
             

@@ -14,12 +14,13 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/theme-modern.css">
     <link rel="stylesheet" href="assets/css/quiz.css">
 </head>
 <body>
     
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-modern">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <span>🌙</span> Ramadan Kids Corner
@@ -156,6 +157,60 @@
         </div>
     </section>
 
+    <!-- Educational Games Section -->
+    <section class="section" id="educationalGames">
+        <div class="container">
+            <h2 class="section-title">Jeux Éducatifs</h2>
+            <p class="text-center mb-5 quiz-games-subtitle">Apprends autrement avec des mini-jeux amusants !</p>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="quiz-game-card">
+                        <div class="quiz-game-icon">🧠</div>
+                        <h3 class="quiz-game-title">Mémoire Express</h3>
+                        <p class="quiz-game-text">Trouve les paires d'icônes du Ramadan le plus vite possible.</p>
+                        <button class="btn btn-primary w-100" onclick="educationalGames.startGame('memory')">
+                            <i class="bi bi-controller me-2"></i> Jouer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="quiz-game-card">
+                        <div class="quiz-game-icon">⚡</div>
+                        <h3 class="quiz-game-title">Vrai / Faux Flash</h3>
+                        <p class="quiz-game-text">Réponds rapidement à des affirmations sur le Ramadan.</p>
+                        <button class="btn btn-warning w-100" onclick="educationalGames.startGame('trueFalse')">
+                            <i class="bi bi-lightning-charge-fill me-2"></i> Jouer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="quiz-game-card">
+                        <div class="quiz-game-icon">🔤</div>
+                        <h3 class="quiz-game-title">Mot Mystère</h3>
+                        <p class="quiz-game-text">Remets les lettres dans l'ordre pour retrouver le mot.</p>
+                        <button class="btn btn-success w-100" onclick="educationalGames.startGame('word')">
+                            <i class="bi bi-spellcheck me-2"></i> Jouer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gameArena" class="game-arena" style="display: none;">
+                <div class="game-arena-header">
+                    <h3 id="gameTitle">Jeu</h3>
+                    <button class="btn btn-secondary" onclick="educationalGames.closeArena()">
+                        <i class="bi bi-x-lg me-2"></i> Fermer
+                    </button>
+                </div>
+                <div id="gameScore" class="game-score">Score: 0</div>
+                <div id="gameContent"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Quiz Container (Hidden by default) -->
     <section class="section" id="quizContainer" style="display: none;">
         <div class="container">
@@ -200,7 +255,7 @@
     </div>
 
     <!-- Fun Statistics -->
-    <section class="section" style="background-color: white;">
+    <section class="section surface-panel">
         <div class="container">
             <h2 class="section-title">Pourquoi faire nos Quiz ?</h2>
             <div class="row g-4">
@@ -296,6 +351,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/quiz-data.js"></script>
     <script src="assets/js/quiz.js"></script>
+    <script src="assets/js/quiz-games.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,352 @@
+/* ===============================================
+   Ramadan Kids Corner - Modern Dark Theme
+   Applied across site pages (except inline custom history page)
+   =============================================== */
+
+:root {
+    --dark-bg: #0A0F1E;
+    --dark-surface: #151E2F;
+    --dark-surface-2: #1E2A3A;
+    --gold: #FFD966;
+    --gold-light: #FFEAA7;
+    --emerald: #2ECC71;
+    --emerald-dark: #27AE60;
+    --coral: #FF6B6B;
+    --purple: #9B59B6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0C4DE;
+    --text-muted: #8A9DB0;
+}
+
+body {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+p,
+small,
+li,
+label,
+.lead {
+    color: var(--text-secondary);
+}
+
+/* Navbar */
+.navbar,
+.navbar.navbar-modern {
+    background: rgba(21, 30, 47, 0.92) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    color: var(--gold) !important;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-secondary) !important;
+    border-radius: 50px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--gold) !important;
+    background: rgba(255, 217, 102, 0.1);
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #111827;
+    border-radius: 50px;
+}
+
+.btn-cta:hover {
+    color: #111827;
+    box-shadow: 0 10px 20px rgba(255, 217, 102, 0.3);
+}
+
+/* Hero */
+.hero-section {
+    background: linear-gradient(135deg, var(--dark-surface), var(--dark-bg));
+}
+
+.hero-title {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    color: var(--text-secondary);
+}
+
+/* Sections */
+.section {
+    background: transparent;
+}
+
+.surface-panel {
+    background: var(--dark-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cta-gradient-section {
+    background: linear-gradient(135deg, #3A2E57 0%, #1F2F46 100%);
+}
+
+.cta-gradient-section .lead,
+.cta-gradient-section p {
+    color: var(--text-secondary) !important;
+}
+
+.section-title {
+    color: var(--gold);
+}
+
+.section-title::after {
+    background: linear-gradient(90deg, var(--gold), #7FDBB1, #6FA8FF);
+}
+
+/* Cards */
+.card,
+.activity-card,
+.quiz-card,
+.stat-box,
+.quiz-features,
+.feature-item {
+    background: var(--dark-surface) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.card-title,
+.quiz-card-title,
+.feature-item h4,
+.stat-box h3,
+.activity-card h3 {
+    color: var(--gold) !important;
+}
+
+.card-text,
+.quiz-card-description,
+.feature-item p,
+.stat-box p,
+.activity-card p,
+.quiz-questions {
+    color: var(--text-secondary) !important;
+}
+
+.card:hover,
+.activity-card:hover,
+.quiz-card:hover {
+    border-color: rgba(255, 217, 102, 0.45) !important;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 50px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--purple), #7D5AC7);
+    color: var(--text-primary);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #111827;
+}
+
+.btn-secondary {
+    background: #2A3348;
+    color: var(--text-primary);
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    background: var(--dark-surface-2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.16) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 217, 102, 0.2) !important;
+}
+
+label.form-label,
+.form-label {
+    color: var(--text-primary);
+}
+
+/* Accordion */
+.accordion-item {
+    background: var(--dark-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.accordion-button {
+    background: var(--dark-surface-2);
+    color: var(--text-primary);
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #3A2E57, #2B3E55);
+    color: var(--gold);
+}
+
+.accordion-body {
+    background: var(--dark-surface);
+    color: var(--text-secondary);
+}
+
+/* Modal */
+.modal-content {
+    background: var(--dark-surface);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body,
+.modal-body li,
+.modal-body p,
+.modal-body ol,
+.modal-body ul {
+    color: var(--text-secondary);
+}
+
+.modal-footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Footer */
+.footer,
+.footer-modern {
+    background: linear-gradient(135deg, var(--dark-surface) 0%, #111827 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer h5 {
+    color: var(--gold);
+}
+
+.footer a,
+.footer p,
+.footer-bottom {
+    color: var(--text-secondary);
+}
+
+.footer a:hover {
+    color: var(--gold);
+}
+
+/* Misc */
+img {
+    border-radius: 20px;
+}
+
+.alert-info {
+    background: rgba(111, 168, 255, 0.12);
+    color: var(--text-secondary);
+    border-color: rgba(111, 168, 255, 0.35);
+}
+
+/* Contact layout fixes */
+body.contact-page .contact-column .card {
+    height: auto !important;
+}
+
+body.contact-page .contact-column {
+    display: block;
+}
+
+/* Contact page */
+.contact-highlight-card {
+    background: linear-gradient(135deg, #3A2E57 0%, #23364B 100%) !important;
+    border: 1px solid rgba(255, 217, 102, 0.25) !important;
+}
+
+.contact-highlight-card h3,
+.contact-highlight-card h5 {
+    color: var(--gold) !important;
+}
+
+.contact-detail p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+.contact-detail a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    color: var(--gold);
+}
+
+.contact-social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.social-link-btn {
+    min-width: 120px;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+.social-link-btn:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.social-facebook {
+    background: linear-gradient(135deg, #1877F2, #0D5FCC);
+}
+
+.social-instagram {
+    background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
+}
+
+.social-twitter {
+    background: linear-gradient(135deg, #1DA1F2, #0D8BD9);
+}
+
+.social-youtube {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+}
+
+.location-card h3 {
+    color: var(--gold) !important;
+}
+
+.location-actions .btn {
+    font-weight: 700;
+}
+
+@media (max-width: 576px) {
+    .contact-social-grid {
+        grid-template-columns: 1fr;
+    }
+}

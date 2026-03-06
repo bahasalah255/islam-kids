@@ -242,17 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== HERO SECTION PARALLAX EFFECT =====
-document.addEventListener('DOMContentLoaded', function() {
-    const heroSection = document.querySelector('.hero-section');
-    
-    if (heroSection) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallaxSpeed = 0.5;
-            heroSection.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-        });
-    }
-});
+// Disabled to prevent layout overlap between sections on long pages.
 
 // ===== BUTTON RIPPLE EFFECT =====
 document.addEventListener('DOMContentLoaded', function() {

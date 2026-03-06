@@ -3,32 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Histoires éducatives du Ramadan pour enfants avec de belles morales">
-    <title>Histoires - Ramadan Kids Corner</title>
-    
+    <title>Histoires Islamiques - Ramadan Kids Corner</title>
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0A0F1E;
+            --dark-surface: #151E2F;
+            --dark-surface-2: #1E2A3A;
+            --gold: #FFD966;
+            --gold-light: #FFEAA7;
+            --emerald: #2ECC71;
+            --emerald-dark: #27AE60;
+            --coral: #FF6B6B;
+            --coral-dark: #FF5252;
+            --purple: #9B59B6;
+            --purple-light: #AE7ACB;
+            --blue-accent: #3498DB;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8A9DB0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Modern Glass Navbar */
+        .navbar-modern {
+            background: rgba(21, 30, 47, 0.95) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            color: var(--gold) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold) !important;
+            background: rgba(255, 217, 102, 0.1);
+        }
+
+        .btn-modern {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-bg);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 217, 102, 0.3);
+            color: var(--dark-bg);
+        }
+
+        .btn-outline-modern {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-modern:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-modern {
+            background: linear-gradient(135deg, var(--dark-surface), var(--dark-bg));
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 217, 102, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Category Pills Modern */
+        .category-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .category-pill-modern {
+            background: var(--dark-surface-2);
+            color: var(--text-secondary);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .category-pill-modern:hover {
+            background: rgba(255, 217, 102, 0.1);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .category-pill-modern.active {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border-color: var(--gold);
+        }
+
+        /* Story Cards Modern */
+        .story-card-modern {
+            background: var(--dark-surface);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            position: relative;
+        }
+
+        .story-card-modern:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .story-image-wrapper {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .story-card-modern:hover .story-image {
+            transform: scale(1.1);
+        }
+
+        .story-category-badge-modern {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .story-content {
+            padding: 1.5rem;
+        }
+
+        .age-badge-modern {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .prophet-badge {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .story-summary {
+            color: var(--text-secondary);
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .moral-modern {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(46, 204, 113, 0.05));
+            border-left: 4px solid var(--emerald);
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        .btn-story {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-story:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border-color: var(--gold);
+        }
+
+        /* Full Story Modal */
+        .story-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .story-modal.active {
+            display: block;
+        }
+
+        .modal-content-modern {
+            background: var(--dark-surface);
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--coral);
+            transform: rotate(90deg);
+        }
+
+        /* Quiz Section Modern */
+        .quiz-card-modern {
+            background: var(--dark-surface-2);
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option-modern {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .quiz-option-modern:hover {
+            background: rgba(255, 217, 102, 0.1);
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .quiz-option-modern.correct {
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+            color: white;
+            border-color: var(--emerald);
+        }
+
+        .quiz-option-modern.wrong {
+            background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+            color: white;
+            border-color: var(--coral);
+        }
+
+        /* Accordion Modern */
+        .accordion-modern {
+            background: var(--dark-surface-2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-header-modern {
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .accordion-content-modern {
+            padding: 0 1.25rem 1.25rem;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .accordion-content-modern.show {
+            display: block;
+        }
+
+        /* Footer Modern */
+        .footer-modern {
+            background: var(--dark-surface);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .category-wrapper {
+                gap: 0.5rem;
+            }
+            
+            .category-pill-modern {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <!-- Modern Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span>🌙</span> Ramadan Kids Corner
+                <i class="bi bi-moon-stars-fill me-2" style="color: var(--gold);"></i>
+                Ramadan Kids Corner
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background: var(--gold);">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Accueil</a>
                     </li>
@@ -36,7 +439,7 @@
                         <a class="nav-link" href="activites.html">Activités</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="histoires.html">Histoires</a>
+                        <a class="nav-link active" href="histoires.html">Histoires</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="quiz.html">Quiz</a>
@@ -44,319 +447,946 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="activites.html" class="btn btn-cta">Commencer</a>
-                    </li>
                 </ul>
+                <a href="quiz.html" class="btn btn-modern ms-lg-3">
+                    <i class="bi bi-patch-question-fill me-2"></i>Quiz
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- Modern Hero Section -->
+    <section class="hero-modern">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="hero-title">Les Histoires du Ramadan 📖</h1>
-                    <p class="hero-subtitle">Découvre de belles histoires pleines de sagesse et de leçons précieuses !</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stories Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Histoires Inspirantes</h2>
-            
-            <!-- Story Accordion -->
-            <div class="accordion" id="storiesAccordion">
-                
-                <!-- Histoire 1 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#story1" aria-expanded="true" aria-controls="story1">
-                            <span class="me-3">🌙</span> La Petite Lune Curieuse
-                        </button>
-                    </h2>
-                    <div id="story1" class="accordion-collapse collapse show" data-bs-parent="#storiesAccordion">
-                        <div class="accordion-body">
-                            <p>
-                                Il était une fois une petite lune nommée Qamar qui vivait dans le ciel étoilé. 
-                                Chaque nuit, elle regardait les enfants sur Terre se préparer pour le Ramadan et elle 
-                                était très curieuse.
-                            </p>
-                            <p>
-                                "Pourquoi les enfants sont-ils si heureux pendant ce mois ?" se demandait-elle. 
-                                Une étoile sage lui répondit : "C'est parce qu'ils apprennent la patience, le partage 
-                                et l'amour pendant le Ramadan !"
-                            </p>
-                            <p>
-                                Qamar décida alors de briller de toutes ses forces pour guider les enfants pendant 
-                                ce mois spécial. Elle comprit que même les petites lumières peuvent faire une grande 
-                                différence !
-                            </p>
-                            
-                            <div class="alert alert-info mt-4" style="border-radius: 15px; border-left: 5px solid #7B5EA7;">
-                                <h5 class="fw-bold mb-2">✨ La Morale de l'Histoire</h5>
-                                <p class="mb-0">
-                                    Même si tu es petit, tu peux faire briller le monde autour de toi par tes bonnes 
-                                    actions et ta gentillesse !
-                                </p>
-                            </div>
-                        </div>
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <div class="mb-3">
+                        <span class="badge" style="background: rgba(255, 217, 102, 0.1); color: var(--gold); padding: 0.5rem 1.5rem; border-radius: 50px;">
+                            <i class="bi bi-book-half me-2"></i>Contes et Récits Islamiques
+                        </span>
                     </div>
-                </div>
-
-                <!-- Histoire 2 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#story2" aria-expanded="false" aria-controls="story2">
-                            <span class="me-3">⭐</span> Le Jardin des Bonnes Actions
-                        </button>
-                    </h2>
-                    <div id="story2" class="accordion-collapse collapse" data-bs-parent="#storiesAccordion">
-                        <div class="accordion-body">
-                            <p>
-                                Dans un village lointain, vivait un petit garçon nommé Youssef qui adorait jardiner. 
-                                Un jour, son grand-père lui offrit un paquet de graines magiques.
-                            </p>
-                            <p>
-                                "Ces graines sont spéciales," dit le grand-père. "Chaque fois que tu fais une bonne 
-                                action pendant le Ramadan, une graine poussera et deviendra une belle fleur !"
-                            </p>
-                            <p>
-                                Youssef était ravi ! Il aida sa maman à préparer le repas, partagea ses jouets avec 
-                                son petit frère, et fut gentil avec tout le monde. À la fin du Ramadan, son jardin 
-                                était rempli de magnifiques fleurs colorées !
-                            </p>
-                            
-                            <div class="alert alert-info mt-4" style="border-radius: 15px; border-left: 5px solid #43AA8B;">
-                                <h5 class="fw-bold mb-2">✨ La Morale de l'Histoire</h5>
-                                <p class="mb-0">
-                                    Chaque bonne action que tu fais est comme planter une graine. Plus tu en plantes, 
-                                    plus ton jardin de bonheur sera beau !
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Histoire 3 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#story3" aria-expanded="false" aria-controls="story3">
-                            <span class="me-3">🕌</span> La Lanterne de Fatima
-                        </button>
-                    </h2>
-                    <div id="story3" class="accordion-collapse collapse" data-bs-parent="#storiesAccordion">
-                        <div class="accordion-body">
-                            <p>
-                                Fatima était une petite fille qui adorait les lanternes du Ramadan. Elle en avait 
-                                une très spéciale qui brillait différemment chaque soir.
-                            </p>
-                            <p>
-                                Un soir, la lanterne brilla en or quand Fatima partagea son goûter avec une amie. 
-                                Le lendemain, elle brilla en bleu quand Fatima aida sa grand-mère. Et le jour suivant, 
-                                elle scintilla en vert quand Fatima dit "merci" à son papa.
-                            </p>
-                            <p>
-                                Fatima comprit que sa lanterne changeait de couleur pour refléter ses bonnes actions. 
-                                Elle décida de faire briller sa lanterne de toutes les couleurs de l'arc-en-ciel !
-                            </p>
-                            
-                            <div class="alert alert-info mt-4" style="border-radius: 15px; border-left: 5px solid #F9C74F;">
-                                <h5 class="fw-bold mb-2">✨ La Morale de l'Histoire</h5>
-                                <p class="mb-0">
-                                    Tes bonnes actions illuminent ta vie et celle des autres. Continue à faire le bien 
-                                    et ton cœur brillera toujours !
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Histoire 4 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#story4" aria-expanded="false" aria-controls="story4">
-                            <span class="me-3">🎁</span> Le Cadeau du Petit Oiseau
-                        </button>
-                    </h2>
-                    <div id="story4" class="accordion-collapse collapse" data-bs-parent="#storiesAccordion">
-                        <div class="accordion-body">
-                            <p>
-                                Dans un magnifique jardin vivait un petit oiseau nommé Bilal. Il n'avait pas beaucoup, 
-                                juste quelques graines qu'il avait collectées pour le Ramadan.
-                            </p>
-                            <p>
-                                Un jour, il vit un vieil oiseau qui avait faim. Même s'il n'avait que quelques graines, 
-                                Bilal décida de les partager avec le vieil oiseau.
-                            </p>
-                            <p>
-                                Le lendemain matin, Bilal découvrit que son nid était rempli de graines délicieuses ! 
-                                Les autres oiseaux, touchés par sa générosité, avaient tous partagé un peu de leur 
-                                nourriture avec lui.
-                            </p>
-                            
-                            <div class="alert alert-info mt-4" style="border-radius: 15px; border-left: 5px solid #F9844A;">
-                                <h5 class="fw-bold mb-2">✨ La Morale de l'Histoire</h5>
-                                <p class="mb-0">
-                                    Quand tu partages avec les autres, même si c'est peu, tu reçois toujours beaucoup 
-                                    plus en retour. La générosité est récompensée !
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Histoire 5 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#story5" aria-expanded="false" aria-controls="story5">
-                            <span class="me-3">🌟</span> L'Étoile de la Patience
-                        </button>
-                    </h2>
-                    <div id="story5" class="accordion-collapse collapse" data-bs-parent="#storiesAccordion">
-                        <div class="accordion-body">
-                            <p>
-                                Il y avait une belle étoile dans le ciel qui voulait être la plus brillante de toutes. 
-                                Elle s'appelait Sabrina, ce qui signifie "patience" en arabe.
-                            </p>
-                            <p>
-                                Au début du Ramadan, Sabrina n'était qu'une petite étoile. Elle regardait les enfants 
-                                apprendre la patience en jeûnant et en attendant le coucher du soleil pour manger.
-                            </p>
-                            <p>
-                                Chaque jour, en voyant les enfants être patients, Sabrina brillait un peu plus fort. 
-                                À la fin du Ramadan, elle était devenue l'étoile la plus brillante du ciel !
-                            </p>
-                            
-                            <div class="alert alert-info mt-4" style="border-radius: 15px; border-left: 5px solid #7B5EA7;">
-                                <h5 class="fw-bold mb-2">✨ La Morale de l'Histoire</h5>
-                                <p class="mb-0">
-                                    La patience est une qualité précieuse. Plus tu apprends à être patient, plus tu 
-                                    deviens fort et brillant comme Sabrina !
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Section -->
-    <section class="section" style="background-color: white;">
-        <div class="container">
-            <h2 class="section-title">À Toi de Créer !</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="card p-4">
-                        <h3 class="mb-4">📝 Écris Ta Propre Histoire</h3>
-                        <p class="lead">
-                            Maintenant que tu as lu ces belles histoires, pourquoi ne pas créer la tienne ? 
-                            Imagine une histoire du Ramadan avec tes propres personnages !
-                        </p>
-                        <div class="mt-4">
-                            <h5>Quelques idées pour commencer :</h5>
-                            <ul>
-                                <li>Une aventure dans le désert pendant le Ramadan</li>
-                                <li>Un animal qui découvre le Ramadan</li>
-                                <li>Une famille qui partage un repas spécial</li>
-                                <li>Un enfant qui fait une bonne action</li>
-                            </ul>
-                        </div>
-                        <a href="contact.html" class="btn btn-primary btn-lg mt-3">
-                            <i class="bi bi-send me-2"></i> Partage ton histoire avec nous !
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=400&fit=crop" 
-                         alt="Enfant qui écrit" class="img-fluid" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fun Facts Section -->
-    <section class="section" style="background: linear-gradient(135deg, #7B5EA7 0%, #43AA8B 100%); color: white;">
-        <div class="container">
-            <h2 class="text-center mb-5" style="color: white;">🌙 Le Savais-Tu ?</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="text-center p-4" style="background: rgba(255,255,255,0.1); border-radius: 20px;">
-                        <div style="font-size: 3rem;" class="mb-3">📚</div>
-                        <h4>30 Jours</h4>
-                        <p>Le Ramadan dure 29 ou 30 jours selon l'apparition de la nouvelle lune !</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center p-4" style="background: rgba(255,255,255,0.1); border-radius: 20px;">
-                        <div style="font-size: 3rem;" class="mb-3">🌍</div>
-                        <h4>Partout dans le Monde</h4>
-                        <p>Des millions d'enfants comme toi célèbrent le Ramadan aux quatre coins du monde !</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center p-4" style="background: rgba(255,255,255,0.1); border-radius: 20px;">
-                        <div style="font-size: 3rem;" class="mb-3">🎉</div>
-                        <h4>Aïd al-Fitr</h4>
-                        <p>À la fin du Ramadan, on célèbre l'Aïd avec des cadeaux et des festivités !</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>🌙 Ramadan Kids Corner</h5>
-                    <p>Un espace éducatif dédié aux enfants pour découvrir et célébrer le mois sacré du Ramadan en s'amusant !</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Liens Rapides</h5>
-                    <a href="index.html">Accueil</a>
-                    <a href="activites.html">Activités</a>
-                    <a href="histoires.html">Histoires</a>
-                    <a href="quiz.html">Quiz</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Suivez-nous</h5>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                    </div>
-                    <p class="mt-3">
-                        <i class="bi bi-envelope me-2"></i> contact@ramadankids.com<br>
-                        <i class="bi bi-telephone me-2"></i> +33 1 23 45 67 89
+                    <h1 class="hero-title">
+                        Histoires et Contes Islamiques
+                    </h1>
+                    <p class="lead" style="color: var(--text-secondary); font-size: 1.25rem;">
+                        Découvre des histoires merveilleuses de prophètes, des récits du Ramadan<br>et des leçons de vie précieuses dans un univers magique et éducatif.
                     </p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="mb-0">&copy; 2026 Ramadan Kids Corner. Tous droits réservés. Fait avec ❤️ pour nos enfants.</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="category-wrapper">
+            <span class="category-pill-modern active" data-category="all">
+                <i class="bi bi-grid-fill me-2"></i>Toutes les histoires
+            </span>
+            <span class="category-pill-modern" data-category="prophetes">
+                <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>Prophètes
+            </span>
+            <span class="category-pill-modern" data-category="ramadan">
+                <i class="bi bi-moon-stars-fill me-2" style="color: var(--blue-accent);"></i>Ramadan
+            </span>
+            <span class="category-pill-modern" data-category="morale">
+                <i class="bi bi-heart-fill me-2" style="color: var(--coral);"></i>Valeurs
+            </span>
+        </div>
+    </div>
+
+    <!-- Stories Grid -->
+    <div class="container py-5">
+        <div id="stories-grid" class="row g-4">
+            <!-- Stories will be loaded here via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Moral of the Day Section -->
+    <section class="container py-5" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="moral-modern p-4" style="background: linear-gradient(135deg, rgba(255, 217, 102, 0.1), rgba(52, 152, 219, 0.1)); border-left-color: var(--gold);">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="float-animation">
+                            <i class="bi bi-star-fill" style="font-size: 2.5rem; color: var(--gold);"></i>
+                        </div>
+                        <div>
+                            <h4 class="mb-2">Morale du jour</h4>
+                            <p class="mb-0" style="color: var(--text-secondary); font-size: 1.1rem;">
+                                "La patience est la clé de la délivrance. Comme Ayoub (AS) qui a patienté, souviens-toi qu'après chaque difficulté vient la facilité."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-5" style="color: var(--gold); font-size: 2.5rem;" data-aos="fade-up">
+            <i class="bi bi-question-circle-fill me-3"></i>Quiz Interactif
+        </h2>
+        <div class="row g-4" id="quiz-container">
+            <!-- Quiz will be loaded here via JavaScript -->
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <button class="btn btn-outline-modern" onclick="resetQuiz()">
+                <i class="bi bi-arrow-repeat me-2"></i>Recommencer le quiz
+            </button>
+        </div>
+    </section>
+
+    <!-- Moral Lessons Accordion -->
+    <section class="container py-5">
+        <h2 class="text-center mb-5" style="color: var(--gold); font-size: 2.5rem;" data-aos="fade-up">
+            <i class="bi bi-lightbulb-fill me-3"></i>Leçons à retenir
+        </h2>
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-8">
+                <div id="moral-accordion"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="container py-5" data-aos="fade-up">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center p-5 rounded-4" style="background: linear-gradient(135deg, var(--dark-surface), var(--dark-surface-2));">
+                    <h3 class="mb-3" style="color: var(--gold);">🎨 Donne vie aux histoires!</h3>
+                    <p class="mb-4" style="color: var(--text-secondary); font-size: 1.2rem;">
+                        Après avoir lu ces belles histoires, imprime des coloriages et dessine tes personnages préférés.
+                    </p>
+                    <a href="activites.html" class="btn btn-modern btn-lg">
+                        <i class="bi bi-pencil-fill me-2"></i>Voir les coloriages
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 style="color: var(--gold);">
+                        <i class="bi bi-moon-stars-fill me-2"></i>Ramadan Kids Corner
+                    </h5>
+                    <p style="color: var(--text-secondary);">Le site amusant pour apprendre le Ramadan en s'émerveillant!</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color: var(--gold);">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" style="color: var(--text-secondary); text-decoration: none; line-height: 2;">Accueil</a></li>
+                        <li><a href="activites.html" style="color: var(--text-secondary); text-decoration: none; line-height: 2;">Activités</a></li>
+                        <li><a href="histoires.html" style="color: var(--text-secondary); text-decoration: none; line-height: 2;">Histoires</a></li>
+                        <li><a href="quiz.html" style="color: var(--text-secondary); text-decoration: none; line-height: 2;">Quiz</a></li>
+                        <li><a href="contact.html" style="color: var(--text-secondary); text-decoration: none; line-height: 2;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color: var(--gold);">Contact</h5>
+                    <p style="color: var(--text-secondary);"><i class="bi bi-envelope me-2"></i>hello@ramadankids.com</p>
+                    <p style="color: var(--text-secondary);"><i class="bi bi-telephone me-2"></i>+212 5XX-XXXXXX</p>
+                </div>
+            </div>
+            <hr class="mt-4" style="border-color: rgba(255,255,255,0.05);">
+            <div class="text-center mt-4">
+                <p style="color: var(--text-muted);">&copy; 2024 Ramadan Kids Corner. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <!-- Story Modal -->
+    <div id="storyModal" class="story-modal">
+        <div class="modal-content-modern" id="modalContent">
+            <button class="modal-close" onclick="closeStoryModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div id="modalStoryContent"></div>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Stories Data
+        const stories = [
+            // Prophètes
+            {
+                id: 1,
+                title: "L'arche de Nouh (AS) et le grand déluge",
+                prophet: "Prophète Nouh (AS)",
+                category: "prophetes",
+                age: "3-6 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=400&h=250&fit=crop",
+                summary: "Le Prophète Nouh (AS) a construit une grande arche sur ordre d'Allah pour sauver les croyants et les animaux du grand déluge. Pendant de nombreuses années, il a appelé son peuple à croire en Allah, mais peu l'ont écouté. Avec patience, il a continué sa mission.",
+                moral: "La patience et la confiance en Allah sauvent les croyants.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">L'arche de Nouh (AS) et le grand déluge</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Arche de Nouh">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Il y a très longtemps, vivait un homme bon appelé Nouh (AS). Allah l'avait choisi pour être prophète et guider son peuple.</p>
+                    
+                    <p>Nouh (AS) appelait son peuple à adorer Allah seul, mais la plupart des gens refusaient de l'écouter. Ils se moquaient de lui et continuaient à adorer des idoles. Pendant 950 ans, Nouh (AS) a patiemment continué à transmettre le message d'Allah, sans jamais perdre espoir.</p>
+                    
+                    <p>Un jour, Allah révéla à Nouh (AS) que les méchants allaient être punis par un grand déluge. Il lui ordonna de construire une immense arche. Les gens qui passaient voyaient Nouh construire ce grand bateau loin de la mer et se moquaient encore plus de lui.</p>
+                    
+                    <p>Nouh (AS) a construit l'arche avec l'aide de ses fidèles disciples. Quand l'arche fut terminée, Allah lui ordonna d'y faire monter un couple de chaque animal, ainsi que sa famille et les croyants. Peu de gens l'ont écouté et sont montés dans l'arche.</p>
+                    
+                    <p>Soudain, le ciel s'est ouvert et l'eau s'est mise à tomber avec violence. Les sources de la terre ont jailli. Le délave avait commencé. L'eau montait partout, mais l'arche flottait en sécurité, protégée par Allah.</p>
+                    
+                    <p>Quand le déluge s'est arrêté, l'arche s'est posée sur une montagne appelée Al-Joudi. Tous ceux qui étaient dans l'arche étaient sauvés. Nouh (AS) a remercié Allah et a commencé une nouvelle vie sur terre avec les croyants.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> La patience et la confiance en Allah sauvent toujours les croyants. Même quand tout le monde se moque de toi, reste fidèle à tes convictions.
+                    </div>
+                `
+            },
+            {
+                id: 2,
+                title: "Le sacrifice d'Ibrahim (AS) et le courage d'Ismail",
+                prophet: "Prophètes Ibrahim (AS) & Ismail (AS)",
+                category: "prophetes",
+                age: "5-10 ans",
+                ageColor: "#27AE60",
+                image: "https://images.unsplash.com/photo-1606768666853-403c90a981ad?w=400&h=250&fit=crop",
+                summary: "Le Prophète Ibrahim (AS) a fait un rêve où Allah lui demandait de sacrifier son fils bien-aimé Ismail. Ismail, bien qu'encore jeune, était un garçon courageux et a accepté la volonté d'Allah.",
+                moral: "La confiance en Allah et le sacrifice pour Lui sont récompensés.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Le sacrifice d'Ibrahim (AS) et le courage d'Ismail</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1606768666853-403c90a981ad?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Sacrifice d'Ibrahim">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Ibrahim (AS) était un prophète aimé d'Allah. Il était prêt à tout pour obéir à son Créateur.</p>
+                    
+                    <p>Après de longues années sans enfants, Allah avait béni Ibrahim (AS) avec un fils, Ismail (AS), alors qu'il était déjà très âgé. Ismail grandit en étant un enfant doux, obéissant et plein de sagesse.</p>
+                    
+                    <p>Une nuit, Ibrahim (AS) fit un rêve dans lequel Allah lui demandait de sacrifier son fils bien-aimé. Les rêves des prophètes sont des messages d'Allah. Le cœur d'Ibrahim était déchiré, mais sa foi était plus forte que tout. Il savait qu'Allah ne demande que ce qui est bon.</p>
+                    
+                    <p>Ibrahim (AS) s'adressa à son fils : "Ô mon cher fils, j'ai vu en rêve que je devais te sacrifier. Qu'en penses-tu ?" Ismail, bien qu'encore jeune, montra une maturité incroyable. Il répondit : "Ô mon père, fais ce qui t'est ordonné. Tu me trouveras, si Allah le veut, parmi les endurants."</p>
+                    
+                    <p>Tous deux se soumirent à la volonté d'Allah. Ibrahim (AS) emmena Ismail et se prépara à accomplir le sacrifice. Mais au moment crucial, alors qu'Ibrahim s'apprêtait à exécuter l'ordre, Allah envoya l'ange Jibril avec un immense bélier du Paradis.</p>
+                    
+                    <p>"Ô Ibrahim, tu as démontré ta soumission et ta foi. Nous acceptons ton sacrifice." Ismail fut remplacé par le bélier au dernier moment. Leur obéissance et leur confiance absolue en Allah étaient si grandes qu'Allah les récompensa.</p>
+                    
+                    <p>Cette histoire est commémorée chaque année par les musulmans du monde entier lors de la fête de l'Aïd al-Adha, où ils sacrifient un animal en souvenir de cet événement.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> La confiance en Allah et la volonté de sacrifier ce qu'on aime pour Lui est toujours récompensée. La foi demande parfois des sacrifices, mais Allah ne nous laisse jamais tomber.
+                    </div>
+                `
+            },
+            {
+                id: 3,
+                title: "Yunus (AS) et la baleine",
+                prophet: "Prophète Yunus (AS)",
+                category: "prophetes",
+                age: "4-8 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=400&h=250&fit=crop",
+                summary: "Le Prophète Yunus (AS) a été avalé par une grande baleine après être parti fâché de son peuple. Dans le ventre de la baleine, il a invoqué Allah et s'est repenti.",
+                moral: "Quand on se repent sincèrement, Allah nous pardonne.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Yunus (AS) et la baleine</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Yunus et la baleine">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Dans une ville appelée Ninive, vivait un prophète nommé Yunus (AS). Il avait été envoyé pour guider son peuple, mais ils refusaient d'écouter.</p>
+                    
+                    <p>Jour après jour, Yunus (AS) appelait son peuple à croire en Allah et à abandonner les idoles. Mais les gens étaient têtus et se moquaient de lui. Finalement, Yunus (AS) se fâcha et quitta sa ville en colère, menaçant son peuple d'un châtiment.</p>
+                    
+                    <p>Il monta sur un bateau pour s'éloigner. Mais en pleine mer, une terrible tempête s'abattit sur le bateau. Les marins, effrayés, décidèrent de tirer au sort pour savoir qui devait être jeté à la mer pour apaiser la tempête. Le sort tomba sur Yunus (AS) à trois reprises.</p>
+                    
+                    <p>Yunus (AS) comprit que c'était la volonté d'Allah et se jeta à la mer. Aussitôt, une immense baleine, envoyée par Allah, l'avala tout entier. Dans le ventre de la baleine, dans l'obscurité totale, Yunus (AS) réalisa son erreur et se repentit.</p>
+                    
+                    <p>Il invoqua Allah avec cette célèbre prière : "Lâ ilâha illâ anta, subhânaka, innî kuntu mina dh-dhâlimîn." (Il n'y a de dieu que Toi, gloire à Toi ! J'étais vraiment parmi les injustes.)</p>
+                    
+                    <p>Allah, dans Sa miséricorde, accepta le repentir de Yunus (AS). Il ordonna à la baleine de le déposer sur le rivage, sain et sauf. Mais Yunus (AS) était très faible, sans aucune force. Allah fit pousser un arbre pour le protéger du soleil et le nourrir.</p>
+                    
+                    <p>Après s'être rétabli, Yunus (AS) retourna dans sa ville. Il trouva son peuple complètement transformé ! Après son départ, ils avaient vu les signes, avaient cru en Allah et s'étaient repentis. Allah les avait pardonnés.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> Il ne faut jamais perdre espoir en la miséricorde d'Allah. Quand on se repent sincèrement, Allah nous pardonne toujours. Et parfois, ce qu'on croit être une punition est en fait une leçon pour nous rapprocher de Lui.
+                    </div>
+                `
+            },
+            {
+                id: 4,
+                title: "Youssouf (AS) et le rêve mystérieux",
+                prophet: "Prophète Youssouf (AS)",
+                category: "prophetes",
+                age: "5-10 ans",
+                ageColor: "#27AE60",
+                image: "https://images.unsplash.com/photo-1545315003-c5ad6226c272?w=400&h=250&fit=crop",
+                summary: "Youssouf (AS) a fait un rêve où onze étoiles, le soleil et la lune se prosternaient devant lui. Ses frères, jaloux, l'ont jeté dans un puits, mais Allah avait un grand plan pour lui.",
+                moral: "Le pardon est plus fort que la vengeance.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Youssouf (AS) et le rêve mystérieux</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1545315003-c5ad6226c272?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Youssouf et le rêve">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Youssouf (AS) était le fils bien-aimé de son père Ya'qoub (AS). Il avait onze frères, mais son père l'aimait d'un amour particulier.</p>
+                    
+                    <p>Une nuit, le jeune Youssouf fit un rêve extraordinaire. Il vit onze étoiles, le soleil et la lune qui se prosternaient devant lui. Quand il raconta ce rêve à son père, Ya'qoub (AS) comprit que son fils aurait un grand destin, mais lui recommanda de ne pas raconter ce rêve à ses frères.</p>
+                    
+                    <p>Hélas, ses frères étaient déjà jaloux de l'amour que leur père portait à Youssouf. La jalousie grandit dans leurs cœurs jusqu'à ce qu'ils décident de se débarrasser de lui. Un jour, ils emmenèrent Youssouf loin de son père, sous prétexte de jouer, et le jetèrent dans un puits profond et sombre.</p>
+                    
+                    <p>Ils revinrent auprès de leur père en pleurant, montrant sa chemise couverte de sang de chèvre (mais sans aucune blessure, car ils avaient oublié d'y mettre une morsure). Ils dirent qu'un loup l'avait dévoré. Ya'qoub (AS), bien qu'affligé, douta de leur histoire.</p>
+                    
+                    <p>Pendant ce temps, une caravane passa près du puits. Un homme y puisa de l'eau et en remonta Youssouf ! Il fut emmené en Égypte et vendu comme esclave à un haut dignitaire, Al-Aziz. Sa femme, impressionnée par la beauté de Youssouf, voulut le séduire, mais Youssouf refusa, fidèle à Allah et à son maître. Accusé injustement, il fut emprisonné.</p>
+                    
+                    <p>En prison, Youssouf (AS) interprétait les rêves des prisonniers. Sa réputation parvint jusqu'au roi d'Égypte, qui fit un rêve étrange que personne ne pouvait expliquer. Youssouf l'interpréta : sept années de vaches grasses et d'épis verts seraient suivies de sept années de vaches maigres et d'épis secs. Il conseilla au roi de stocker le grain pendant les bonnes années.</p>
+                    
+                    <p>Impressionné, le roi le fit libérer et nomma Youssouf ministre de l'économie. Pendant les années d'abondance, Youssouf stocka énormément de grain, ce qui sauva l'Égypte et les pays voisins pendant la famine qui suivit.</p>
+                    
+                    <p>Ses frères, frappés par la famine, vinrent en Égypte pour acheter du grain. Sans reconnaître Youssouf, ils se prosternèrent devant lui. Youssouf reconnut ses frères et réalisa son rêve d'enfant : ses frères se prosternaient devant lui. Après plusieurs épreuves, il se révéla à eux et leur pardonna généreusement.</p>
+                    
+                    <p>Youssouf fit venir son père et toute sa famille en Égypte, où ils vécurent en paix. Ses parents se prosternèrent aussi devant lui, réalisant totalement son rêve : onze frères (les étoiles), son père (le soleil) et sa mère (la lune).</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> Le pardon est plus fort que la vengeance. Les épreuves que nous traversons peuvent être des étapes vers un destin plus grand. Allah a toujours un plan pour ceux qui Lui font confiance.
+                    </div>
+                `
+            },
+            {
+                id: 5,
+                title: "Moussa (AS) et la mer qui s'ouvre",
+                prophet: "Prophète Moussa (AS)",
+                category: "prophetes",
+                age: "4-8 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=400&h=250&fit=crop",
+                summary: "Le Prophète Moussa (AS) a conduit les enfants d'Israël hors d'Égypte, poursuivis par Pharaon. Devant la mer, Allah a ordonné à Moussa de frapper l'eau avec son bâton, et la mer s'est ouverte.",
+                moral: "Avec la foi en Allah, tout est possible.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Moussa (AS) et la mer qui s'ouvre</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Moussa et la mer">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">En Égypte, le peuple des enfants d'Israël vivait dans l'esclavage sous le règne cruel de Pharaon, un tyran qui se prétendait dieu.</p>
+                    
+                    <p>Allah envoya Moussa (AS) et son frère Haroun (AS) pour appeler Pharaon à libérer son peuple. Malgré les signes miraculeux que Moussa montra (son bâton se transformant en serpent, sa main devenant éclatante de lumière), Pharaon refusa obstinément de croire.</p>
+                    
+                    <p>Allah envoya alors plusieurs épreuves sur l'Égypte : les eaux du Nil se transformèrent en sang, des grenouilles envahirent tout, des poux, des sauterelles... Chaque fois, Pharaon promettait de libérer les enfants d'Israël si Moussa invoquait Allah pour faire cesser l'épreuve, mais chaque fois il revenait sur sa parole.</p>
+                    
+                    <p>Finalement, Allah ordonna à Moussa de partir de nuit avec son peuple. Quand Pharaon apprit leur fuite, il rassembla son immense armée et se lança à leur poursuite.</p>
+                    
+                    <p>Moussa (AS) et son peuple arrivèrent devant la mer Rouge, avec l'armée de Pharaon qui approchait dangereusement derrière eux. Les gens paniquaient : "Nous sommes coincés, nous allons mourir !" Mais Moussa (AS) avait une foi inébranlable en Allah.</p>
+                    
+                    <p>"N'ayez pas peur, je suis avec vous, et mon Seigneur me guidera", dit Moussa (AS). Allah lui inspira alors : "Frappe la mer avec ton bâton."</p>
+                    
+                    <p>Moussa frappa la mer, et un miracle incroyable se produisit : la mer s'ouvrit en deux, formant douze chemins secs séparés par des murs d'eau. Les enfants d'Israël traversèrent rapidement.</p>
+                    
+                    <p>Pharaon et son armée, voyant cela, s'engagèrent à leur tour sur les chemins de la mer. Mais quand ils furent au milieu, Allah ordonna à la mer de se refermer. Pharaon, pris de panique, s'écria enfin : "Je crois qu'il n'y a de dieu que Celui en qui croient les enfants d'Israël !" Mais il était trop tard.</p>
+                    
+                    <p>La mer se referma sur Pharaon et toute son armée, les noyant. Le corps de Pharaon fut préservé comme signe pour les générations futures.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> Avec la foi en Allah, tout est possible. Quand on a confiance en Lui, même l'impossible devient possible. Ne désespère jamais, car le secours d'Allah est proche.
+                    </div>
+                `
+            },
+            {
+                id: 6,
+                title: "Souleymane (AS) et la fourmi",
+                prophet: "Prophète Souleymane (AS)",
+                category: "prophetes",
+                age: "3-6 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1452573992436-6d508f200b30?w=400&h=250&fit=crop",
+                summary: "Le Prophète Souleymane (AS) pouvait parler aux animaux. Un jour, avec son armée, il traversa une vallée de fourmis. Une fourmi alerta les autres, et Souleymane, l'entendant, sourit et remercia Allah.",
+                moral: "Même les petites créatures ont leur importance.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Souleymane (AS) et la fourmi</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1452573992436-6d508f200b30?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Souleymane et la fourmi">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Le Prophète Souleymane (AS) était un roi puissant à qui Allah avait accordé des pouvoirs extraordinaires. Il pouvait parler aux animaux, commander aux vents et avait autorité sur les djinns.</p>
+                    
+                    <p>Souleymane (AS) était juste et bon. Il utilisait ses pouvoirs pour gouverner avec sagesse. Il comprenait le langage des oiseaux, des animaux, et même des insectes.</p>
+                    
+                    <p>Un jour, Souleymane (AS) se déplaçait avec son immense armée composée d'hommes, de djinns et d'oiseaux. Ils traversaient une vallée où vivaient des fourmis.</p>
+                    
+                    <p>La reine des fourmis, voyant l'armée approcher, cria pour avertir les autres : "Ô vous, fourmis ! Entrez dans vos demeures, sinon Souleymane et son armée vous écraseront sans s'en rendre compte !"</p>
+                    
+                    <p>Grâce au don qu'Allah lui avait accordé, Souleymane (AS) entendit l'appel de la fourmi. Loin de se moquer, il fut touché par la sagesse et la prévoyance de cette petite créature.</p>
+                    
+                    <p>Il sourit de joie et remercia Allah pour cette sagesse et pour tous Ses bienfaits. Il ordonna à son armée de faire attention à ne pas écraser les fourmis, et demanda à Allah de l'inspirer pour toujours être reconnaissant.</p>
+                    
+                    <p>Cette histoire nous enseigne le respect de toutes les créatures d'Allah, même les plus petites. Chaque être vivant a son importance et sa place dans la création.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> Même les petites créatures ont leur importance et leur sagesse. Il faut respecter toute la création d'Allah et être attentif aux autres, aussi petits soient-ils.
+                    </div>
+                `
+            },
+            {
+                id: 7,
+                title: "Ayoub (AS) et la guérison miraculeuse",
+                prophet: "Prophète Ayoub (AS)",
+                category: "prophetes",
+                age: "5-10 ans",
+                ageColor: "#27AE60",
+                image: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?w=400&h=250&fit=crop",
+                summary: "Le Prophète Ayoub (AS) était très riche, mais Allah l'a testé en lui enlevant ses richesses, sa famille et sa santé. Pendant des années, il est resté patient, ne se plaignant jamais.",
+                moral: "La patience face à l'épreuve est toujours récompensée.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Ayoub (AS) et la guérison miraculeuse</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1528901166007-3784c7dd3653?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Ayoub et la guérison">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Ayoub (AS) était un prophète comblé par Allah. Il avait une grande famille, d'immenses troupeaux, des terres fertiles, et surtout, une foi inébranlable.</p>
+                    
+                    <p>Ayoub (AS) était connu pour sa générosité et sa bonté. Il aidait les pauvres, prenait soin des orphelins et remerciait constamment Allah pour tous Ses bienfaits. Mais Allah voulait tester sa foi.</p>
+                    
+                    <p>Un jour, Ayoub perdit tous ses troupeaux, puis ses terres furent détruites, et enfin, il perdit tous ses enfants. Malgré ces immenses malheurs, Ayoub ne se plaignit pas et continua à remercier Allah. Il disait : "Allah m'a donné, Allah a repris. À Lui la louange."</p>
+                    
+                    <p>Puis, une terrible maladie s'abattit sur lui. Son corps se couvrit de plaies, et il devint si faible qu'il ne pouvait plus se lever. Ses amis et sa famille l'abandonnèrent, sauf sa femme, qui resta à ses côtés avec dévouement.</p>
+                    
+                    <p>Pendant des années, Ayoub (AS) supporta cette maladie avec une patience exemplaire. Il ne cessa jamais d'invoquer Allah et de L'adorer. Même quand son état empira, il gardait espoir en la miséricorde d'Allah.</p>
+                    
+                    <p>Finalement, après de longues années de patience, Ayoub (AS) invoqua Allah : "Le mal m'a touché, et Tu es le Plus Miséricordieux des miséricordieux."</p>
+                    
+                    <p>Allah répondit immédiatement à son invocation. Il lui dit : "Frappe la terre de ton pied." Quand Ayoub frappa le sol, une source d'eau fraîche jaillit. Allah lui ordonna de s'y laver et d'en boire. Miraculeusement, Ayoub fut complètement guéri, plus fort et en meilleure santé qu'avant.</p>
+                    
+                    <p>Allah lui rendit sa famille et ses richesses en abondance, et bénit sa vie. Ayoub (AS) avait été patient, et sa patience fut magnifiquement récompensée.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> La patience face à l'épreuve est toujours récompensée. Les difficultés ne durent pas éternellement, et Allah ne laisse jamais tomber ceux qui Lui font confiance.
+                    </div>
+                `
+            },
+            // Ramadan Stories
+            {
+                id: 8,
+                title: "Les jumeaux Safi et Safiya : Le plat du partage",
+                prophet: "",
+                category: "ramadan",
+                age: "4-8 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=400&h=250&fit=crop",
+                summary: "Pendant le Ramadan, les jumeaux Safi et Safiya ont préparé un délicieux plat de dattes fourrées et ont décidé d'en offrir à leur voisine âgée, apprenant la joie du partage.",
+                moral: "Partager rend plus heureux que de garder pour soi.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Les jumeaux Safi et Safiya : Le plat du partage</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Les jumeaux Safi et Safiya">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Safi et Safiya étaient des jumeaux de 7 ans qui adoraient le mois de Ramadan. Chaque année, ils attendaient avec impatience les lanternes, les décorations et surtout, les bons repas en famille.</p>
+                    
+                    <p>Un après-midi, leur maman leur proposa une activité spéciale : "Et si on préparait ensemble des dattes fourrées pour l'iftar ?" Les enfants sautèrent de joie. Ils adoraient cuisiner avec leur maman.</p>
+                    
+                    <p>Dans la cuisine, une douce odeur de dattes et d'amandes embaumait la pièce. Safi dénoyautait les dattes pendant que Safiya les remplissait d'amandes et les roulait dans la noix de coco râpée. Leur maman les aidait à tremper certaines dans du chocolat fondu.</p>
+                    
+                    <p>"Elles sont magnifiques !" s'exclama Safiya en admirant leur travail. "On va se régaler ce soir !"</p>
+                    
+                    <p>Mais soudain, Safi pensa à leur voisine, Madame Fatima, une dame âgée qui vivait seule. "Maman, est-ce que Madame Fatima a quelqu'un pour préparer l'iftar avec elle ?" demanda-t-il.</p>
+                    
+                    <p>Leur maman sourit, fière de la réflexion de son fils. "C'est une très bonne idée, Safi. Pourquoi n'irions-nous pas lui porter un peu de nos dattes ?"</p>
+                    
+                    <p>Les jumeaux préparèrent un joli plat avec une partie des dattes et y ajoutèrent une petite carte dessinée par eux, représentant une lanterne et un croissant de lune. Safiya écrivit : "Ramadan karim, Madame Fatima ! De la part de Safi, Safiya et toute la famille."</p>
+                    
+                    <p>Ils sonnèrent chez leur voisine, le cœur battant. Madame Fatima ouvrit la porte, surprise de les voir. Quand elle vit le plat et la carte, ses yeux s'illuminèrent et s'embuèrent d'émotion.</p>
+                    
+                    <p>"Oh, mes petits chéris ! C'est le plus beau cadeau que j'aie reçu depuis longtemps. Entrez, entrez donc !"</p>
+                    
+                    <p>Madame Fatima les invita à s'asseoir et leur raconta des histoires de son enfance, des histoires de Ramadan d'il y a très longtemps. Les jumeaux étaient fascinés. Ils passèrent un merveilleux moment avec elle.</p>
+                    
+                    <p>Le lendemain, Madame Fatima frappa à leur porte avec un grand sourire. Elle leur avait préparé des gâteaux au miel, sa recette secrète. "C'est pour vous remercier de votre gentillesse", dit-elle en les embrassant.</p>
+                    
+                    <p>Depuis ce jour, les jumeaux et Madame Fatima sont devenus inséparables. Chaque semaine, ils lui rendent visite, et parfois, elle les aide même à préparer les dattes pour l'iftar. Safi et Safiya ont appris que le plus beau cadeau du Ramadan, ce n'est pas ce qu'on reçoit, mais ce qu'on partage avec les autres.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> Partager rend plus heureux que de garder pour soi. Un petit geste de gentillesse peut créer une belle amitié et illuminer la journée de quelqu'un.
+                    </div>
+                `
+            },
+            {
+                id: 9,
+                title: "La générosité du Prophète Muhammad (SAW)",
+                prophet: "Prophète Muhammad (SAW)",
+                category: "ramadan",
+                age: "5-10 ans",
+                ageColor: "#27AE60",
+                image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=250&fit=crop",
+                summary: "Le Prophète Muhammad (SAW) était encore plus généreux pendant le Ramadan, comme un vent qui apporte le bien. Il ne refusait jamais de donner à ceux qui demandaient.",
+                moral: "La générosité est encore plus belle pendant le Ramadan.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">La générosité du Prophète Muhammad (SAW)</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Générosité du Prophète">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Le Prophète Muhammad (SAW) était connu pour être la personne la plus généreuse de son époque. Mais ses compagnons racontent qu'il était encore plus généreux pendant le mois de Ramadan.</p>
+                    
+                    <p>L'ange Jibril (AS) venait chaque nuit du Ramadan pour réviser le Coran avec le Prophète (SAW). À ce moment-là, la générosité du Prophète était plus rapide que le vent qui apporte la pluie et le bien partout où il passe.</p>
+                    
+                    <p>Un jour, un homme vint trouver le Prophète (SAW) et lui demanda de l'aide. Le Prophète lui donna tout ce qu'il avait sur lui. L'homme retourna vers sa communauté et dit : "Si vous voulez voir la personne la plus généreuse, suivez-moi !"</p>
+                    
+                    <p>Un autre jour, une femme apporta un manteau tissé qu'elle avait fabriqué elle-même. Le Prophète en avait besoin, car le sien était usé. Il l'accepta avec gratitude. Mais pendant qu'il le portait, un homme vint lui demander : "Ô Messager d'Allah, donne-moi ce manteau, s'il te plaît."</p>
+                    
+                    <p>Le Prophète (SAW) n'hésita pas une seconde. Il rentra chez lui, enleva le manteau et le donna à l'homme. Ses compagnons, étonnés, dirent à l'homme : "Tu n'aurais pas dû demander cela ! Le Prophète en avait besoin !"</p>
+                    
+                    <p>Mais le Prophète (SAW) ne regretta jamais d'avoir donné. Il disait toujours : "Je ne suis qu'un distributeur, c'est Allah qui donne." Il ne gardait jamais rien pour le lendemain, donnant tout ce qu'il avait dans l'espoir de la récompense d'Allah.</p>
+                    
+                    <p>Pendant le Ramadan, cette générosité atteignait son sommet. Il nourrissait les pauvres, donnait aux orphelins et prenait soin des veuves. Il encourageait ses compagnons à faire de même, disant : "Celui qui nourrit un jeûneur aura une récompense égale à la sienne, sans que la récompense du jeûneur ne soit diminuée."</p>
+                    
+                    <p>C'est pour cela que les musulmans du monde entier, en suivant son exemple, aiment tant donner et partager pendant ce mois béni.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> La générosité est encore plus belle pendant le Ramadan. Donner aux autres, surtout pendant ce mois béni, est une façon de suivre l'exemple du Prophète (SAW) et d'augmenter nos bonnes actions.
+                    </div>
+                `
+            },
+            {
+                id: 10,
+                title: "Hassan et la petite voisine",
+                prophet: "",
+                category: "ramadan",
+                age: "3-6 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=250&fit=crop",
+                summary: "Hassan a accidentellement cassé le pot de fleurs de sa voisine Amina. Pendant le Ramadan, il a appris que c'est le mois du pardon et est allé s'excuser, créant une belle amitié.",
+                moral: "Savoir demander pardon et pardonner rend heureux.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Hassan et la petite voisine</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Hassan et la petite voisine">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Hassan était un petit garçon de 6 ans, plein d'énergie, qui aimait jouer au ballon dans la cour de son immeuble. C'était le premier jour du Ramadan, et il était très excité.</p>
+                    
+                    <p>Ce jour-là, Hassan jouait avec son nouveau ballon rouge, faisant des passes contre le mur. Il s'entraînait pour devenir footballeur professionnel, disait-il à qui voulait l'entendre.</p>
+                    
+                    <p>Soudain, BOUM ! Le ballon dévia et alla heurter le joli pot de fleurs de sa voisine, Amina. Le pot se brisa en mille morceaux, et la terre se répandit partout sur le balcon. Les belles fleurs rouges gisaient au sol, abîmées.</p>
+                    
+                    <p>Le cœur d'Hassan s'arrêta. Il savait qu'Amina, une fille de son âge qui venait d'emménager, prenait grand soin de ses fleurs. Il l'avait vue les arroser tous les matins avec un petit sourire. Hassan avait très peur. Il ramassa son ballon et rentra chez lui sans bruit.</p>
+                    
+                    <p>Le soir, pendant le dîner de l'iftar, sa maman remarqua qu'il n'était pas aussi joyeux que d'habitude. "Qu'est-ce qui ne va pas, mon chéri ?" demanda-t-elle. Hassan baissa la tête et raconta toute l'histoire.</p>
+                    
+                    <p>Sa maman le prit dans ses bras. "Mon chéri, le Ramadan est le mois du pardon. Allah aime ceux qui savent reconnaître leurs erreurs et demander pardon. Pourquoi n'irais-tu pas t'excuser demain ?"</p>
+                    
+                    <p>Hassan réfléchit toute la nuit. Le lendemain matin, avec sa maman, il alla acheter un nouveau pot et de belles fleurs rouges, encore plus jolies que celles d'avant.</p>
+                    
+                    <p>Le cœur battant, il sonna chez Amina. Quand elle ouvrit la porte, Hassan lui tendit le pot et dit d'une toute petite voix : "Je suis désolé pour ton pot de fleurs. C'était un accident. Je te demande pardon."</p>
+                    
+                    <p>Amina regarda le nouveau pot, regarda Hassan, et un grand sourire illumina son visage. "C'est gentil ! Merci pour ce nouveau pot. Tu veux venir jouer avec moi ?"</p>
+                    
+                    <p>Depuis ce jour, Hassan et Amina sont devenus les meilleurs amis du monde. Ils jouent ensemble chaque jour, et parfois, ils préparent même l'iftar en famille. Hassan a compris que demander pardon n'est pas difficile, et que le pardon rend vraiment heureux.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> Savoir demander pardon et pardonner aux autres rend heureux. Le Ramadan est le mois parfait pour apprendre à s'excuser et à réparer ses erreurs.
+                    </div>
+                `
+            },
+            // Valeurs Stories
+            {
+                id: 11,
+                title: "Le Prophète Muhammad (SAW) et la vieille dame",
+                prophet: "Prophète Muhammad (SAW)",
+                category: "morale",
+                age: "4-8 ans",
+                ageColor: "#2ECC71",
+                image: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=400&h=250&fit=crop",
+                summary: "Une vieille dame non-musulmane jetait chaque jour ses ordures sur le Prophète (SAW). Un jour, elle ne l'a pas fait. Inquiet, le Prophète est allé prendre de ses nouvelles, touchant son cœur.",
+                moral: "La gentillesse peut changer les cœurs.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Le Prophète Muhammad (SAW) et la vieille dame</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Le Prophète et la vieille dame">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">À La Mecque, avant l'Islam, vivait une vieille dame qui n'aimait pas le Prophète Muhammad (SAW) et ce qu'il enseignait. Chaque jour, quand le Prophète passait devant sa maison pour se rendre à la Kaaba, elle l'attendait avec un seau d'ordures.</p>
+                    
+                    <p>Dès qu'il approchait, elle jetait les détritus sur lui. Parfois, c'était de la poussière, parfois des épluchures, parfois de l'eau sale. Le Prophète (SAW) ne disait jamais rien. Il continuait son chemin sans se fâcher, sans même la regarder d'une manière désagréable.</p>
+                    
+                    <p>Les compagnons du Prophète étaient indignés. "Ô Messager d'Allah, laisse-nous lui dire quelque chose !" proposaient-ils. Mais le Prophète (SAW) répondait : "Laissez-la. Elle ne sait pas ce qu'elle fait."</p>
+                    
+                    <p>Les jours passaient, et chaque jour, la vieille dame continuait son geste. Mais le Prophète (SAW) ne changeait jamais d'attitude. Il restait calme, patient, et répondait toujours au mal par le bien.</p>
+                    
+                    <p>Un matin, le Prophète (SAW) prit son chemin habituel vers la Kaaba. En approchant de la maison de la vieille dame, il ralentit, s'attendant à recevoir les ordures quotidiennes. Mais ce jour-là, rien ne vint. Le silence régnait.</p>
+                    
+                    <p>Le Prophète (SAW) s'inquiéta. "Que lui est-il arrivé ?" se demanda-t-il. Au lieu de continuer son chemin, il frappa à sa porte. Une voisine lui apprit que la vieille dame était malade, alitée depuis quelques jours.</p>
+                    
+                    <p>Sans hésiter, le Prophète (SAW) demanda la permission de lui rendre visite. Il entra chez elle doucement, s'assit près de son lit et lui demanda de ses nouvelles avec bienveillance. Il lui proposa même de l'aide.</p>
+                    
+                    <p>La vieille dame, bien que faible, le reconnut. Elle fut stupéfaite. "Toi ? Toi, l'homme que j'insultais chaque jour, tu viens me rendre visite ? Tu prends de mes nouvelles ?"</p>
+                    
+                    <p>Le Prophète (SAW) sourit doucement. "Bien sûr. Tu es ma voisine, et une voisine a des droits. Quand tu étais malade, je me suis inquiété pour toi."</p>
+                    
+                    <p>Touchée par tant de bonté et de pardon, la vieille dame fondit en larmes. "Ô Muhammad, ta morale est vraiment magnifique. Je témoigne qu'il n'y a de dieu qu'Allah et que tu es Son messager."</p>
+                    
+                    <p>Ainsi, par sa patience et sa gentillesse, le Prophète (SAW) avait transformé une ennemie en une croyante sincère.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> La gentillesse peut changer les cœurs. Répondre au mal par le bien est la plus grande des forces. Même ceux qui semblent être nos ennemis peuvent devenir nos amis avec de la patience et de la bonté.
+                    </div>
+                `
+            },
+            {
+                id: 12,
+                title: "Al-Amin : L'homme digne de confiance",
+                prophet: "Prophète Muhammad (SAW)",
+                category: "morale",
+                age: "5-10 ans",
+                ageColor: "#27AE60",
+                image: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?w=400&h=250&fit=crop",
+                summary: "Avant même d'être prophète, Muhammad (SAW) était surnommé 'Al-Amin' (le digne de confiance). Sa sagesse et son honnêteté ont évité une guerre entre les tribus de La Mecque.",
+                moral: "L'honnêteté apporte le respect de tous.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Al-Amin : L'homme digne de confiance</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1528901166007-3784c7dd3653?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Al-Amin">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Bien avant que Muhammad (SAW) ne reçoive la révélation et ne devienne prophète, il était déjà connu parmi son peuple pour une qualité exceptionnelle : son honnêteté.</p>
+                    
+                    <p>Les habitants de La Mecque l'appelaient "Al-Amin", ce qui signifie "le digne de confiance". Quand quelqu'un avait un objet précieux à garder, il le confiait à Muhammad. Quand un commerçant avait besoin de quelqu'un pour transporter ses marchandises, il faisait appel à lui. Tout le monde lui faisait confiance.</p>
+                    
+                    <p>Un jour, un événement important se produisit à La Mecque. Les différentes tribus de la ville avaient décidé de reconstruire la Kaaba, la Maison sacrée construite par Ibrahim (AS) et Ismail (AS). Chaque tribu participait à la reconstruction, et tout se passait bien jusqu'au moment de placer la Pierre Noire, cette pierre sacrée venue du Paradis, à son emplacement dans le mur de la Kaaba.</p>
+                    
+                    <p>Qui aurait l'honneur de placer la Pierre Noire ? Chaque chef de tribu voulait cet honneur pour lui-même. La dispute dégénéra rapidement. Les tribus se rassemblèrent, armées, prêtes à se battre pour cet honneur. Une guerre civile était sur le point d'éclater à La Mecque.</p>
+                    
+                    <p>Les jours passaient sans qu'aucune solution ne soit trouvée. Finalement, un sage parmi eux proposa : "Laissons le premier homme qui entrera dans la mosquée demain matin décider pour nous. Nous accepterons tous son jugement."</p>
+                    
+                    <p>Tout le monde accepta cette proposition. Le lendemain matin, tous les regards étaient tournés vers l'entrée de la mosquée. Qui allait entrer le premier ?</p>
+                    
+                    <p>Le premier homme qui franchit le seuil fut Muhammad (SAW), le fils d'Abdallah. En le voyant, tous s'écrièrent : "C'est Al-Amin ! C'est Muhammad ! Nous acceptons son jugement !"</p>
+                    
+                    <p>Muhammad (SAW) écouta le problème, puis demanda qu'on lui apporte un grand tissu. Il posa la Pierre Noire au milieu du tissu et dit : "Que chaque chef de tribu prenne un coin du tissu." Tous ensemble, ils soulevèrent le tissu avec la pierre jusqu'au niveau de son emplacement dans le mur. Alors, Muhammad (SAW) prit la pierre de ses propres mains et la plaça à sa place.</p>
+                    
+                    <p>Tous les chefs furent satisfaits : ils avaient tous participé à l'honneur de porter la pierre. Une guerre avait été évitée grâce à la sagesse de celui en qui tous avaient confiance. Cet événement, avant même qu'il ne devienne prophète, montrait déjà les qualités exceptionnelles de Muhammad (SAW).</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> L'honnêteté et la fiabilité apportent le respect de tous, même de ceux qui ne partagent pas nos croyances. La sagesse et la confiance qu'on inspire peuvent résoudre les plus grands conflits.
+                    </div>
+                `
+            },
+            {
+                id: 13,
+                title: "Le garçon et le roi tyran",
+                prophet: "",
+                category: "morale",
+                age: "6-12 ans",
+                ageColor: "#E67E22",
+                image: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400&h=250&fit=crop",
+                summary: "L'histoire d'un jeune garçon qui a tenu tête à un roi tyran qui voulait forcer son peuple à adorer des idoles. Par sa foi et son courage, il a inspiré tout un peuple.",
+                moral: "La foi est plus forte que la peur.",
+                fullStory: `
+                    <h2 class="mb-4" style="color: var(--gold);">Le garçon et le roi tyran</h2>
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Le garçon et le roi tyran">
+                    </div>
+                    
+                    <p class="lead" style="color: var(--gold-light);">Il y a très longtemps vivait un roi puissant mais cruel. Il se prenait pour un dieu et voulait que tous les gens de son royaume l'adorent. Il avait installé de grandes statues et obligeait les gens à se prosterner devant elles.</p>
+                    
+                    <p>Mais dans ce royaume, un jeune garçon croyait en Allah, le Créateur de tout. Il savait que personne ne mérite d'être adoré à part Allah. Il refusait de se prosterner devant les statues, malgré la peur du roi.</p>
+                    
+                    <p>Le roi, apprenant cela, convoqua le garçon. "Pourquoi ne te prosternes-tu pas devant moi comme tout le monde ?" demanda-t-il d'une voix menaçante.</p>
+                    
+                    <p>Le garçon, bien que jeune, répondit avec courage : "Je ne me prosterne que devant Allah, le Créateur des cieux et de la terre. Lui seul mérite l'adoration."</p>
+                    
+                    <p>Furieux, le roi ordonna qu'on jette le garçon du haut d'une montagne. Les soldats l'emmenèrent au sommet, mais quand ils voulurent le pousser, ils tremblèrent de peur et tombèrent eux-mêmes. Le garçon descendit sain et sauf.</p>
+                    
+                    <p>Le roi, encore plus en colère, ordonna qu'on le jette à la mer. Les soldats l'emmenèrent sur un bateau, mais en pleine mer, une tempête éclata et le bateau coula, ne laissant que le garçon, qui nagea jusqu'au rivage.</p>
+                    
+                    <p>Le roi, ne sachant plus quoi faire, dit au garçon : "Je vais te donner une chance. Si tu te prosternes devant moi, je te laisserai la vie." Le garçon refusa.</p>
+                    
+                    <p>Finalement, le roi dit : "Je vais tirer une flèche en disant 'Au nom du garçon', pour que mes dieux la guident. Si elle t'atteint, c'est que mes dieux existent."</p>
+                    
+                    <p>Le garçon répondit : "Dis plutôt : 'Au nom d'Allah, le Créateur des cieux et de la terre'."</p>
+                    
+                    <p>Le roi, par défi, dit : "Au nom d'Allah, le Créateur des cieux et de la terre", et tira sa flèche. La flèche atteignit le garçon, qui tomba en martyr.</p>
+                    
+                    <p>Mais en voyant ce miracle, beaucoup de gens comprirent que le vrai Dieu était Celui que ce garçon adorait. Ils se mirent à croire en Allah. Le garçon, par son courage et sa foi, avait changé le cœur de tout un peuple.</p>
+                    
+                    <div class="moral-modern mt-4">
+                        <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                        <strong>Morale :</strong> La foi est plus forte que la peur. Même un enfant peut être plus courageux qu'un roi quand il a la certitude qu'Allah est avec lui. Notre foi peut inspirer les autres.
+                    </div>
+                `
+            }
+        ];
+
+        // Quiz Data
+        const quizQuestions = [
+            {
+                question: "Combien de piliers a l'Islam ?",
+                options: ["3 piliers", "5 piliers", "7 piliers"],
+                correct: 1
+            },
+            {
+                question: "Que mange-t-on pour rompre le jeûne ?",
+                options: ["Du chocolat", "Des dattes et de l'eau", "Des bonbons"],
+                correct: 1
+            },
+            {
+                question: "Quel Prophète a construit une arche ?",
+                options: ["Ibrahim (AS)", "Nouh (AS)", "Moussa (AS)"],
+                correct: 1
+            },
+            {
+                question: "Qui a été avalé par une baleine ?",
+                options: ["Yunus (AS)", "Youssouf (AS)", "Ayoub (AS)"],
+                correct: 0
+            },
+            {
+                question: "Quel était le surnom du Prophète (SAW) ?",
+                options: ["Al-Amin", "Al-Sadiq", "Al-Karim"],
+                correct: 0
+            },
+            {
+                question: "Qui a eu un rêve avec 11 étoiles ?",
+                options: ["Youssouf (AS)", "Ibrahim (AS)", "Souleymane (AS)"],
+                correct: 0
+            }
+        ];
+
+        // Moral Lessons Data
+        const moralLessons = [
+            {
+                title: "La patience (Ayoub et Nouh)",
+                content: "Comme Ayoub (AS) et Nouh (AS), la patience est une qualité qui plaît à Allah. Quand tu es patient dans les moments difficiles, Allah est avec toi et te récompense toujours.",
+                icon: "bi-star-fill",
+                color: "var(--gold)"
+            },
+            {
+                title: "La générosité (Prophète SAW et les jumeaux)",
+                content: "Partager avec les autres rend heureux. Le Prophète Muhammad (SAW) était très généreux, surtout pendant le Ramadan. Donne aux autres et tu verras la joie dans leurs yeux.",
+                icon: "bi-heart-fill",
+                color: "var(--coral)"
+            },
+            {
+                title: "Le pardon (Youssouf et Hassan)",
+                content: "Pardonner, c'est libérer son cœur. Comme Youssouf (AS) a pardonné à ses frères, et comme Hassan s'est excusé auprès d'Amina, le pardon est une grande qualité.",
+                icon: "bi-emoji-smile-fill",
+                color: "var(--emerald)"
+            },
+            {
+                title: "La confiance en Allah (Ibrahim et Moussa)",
+                content: "Quand tu as confiance en Allah, rien n'est impossible. La mer s'ouvre, le sacrifice est remplacé, et la baleine devient une maison sûre.",
+                icon: "bi-shield-shaded",
+                color: "var(--purple)"
+            }
+        ];
+
+        // Load stories
+        function loadStories() {
+            const grid = document.getElementById('stories-grid');
+            grid.innerHTML = '';
+            
+            stories.forEach(story => {
+                const storyCard = `
+                    <div class="col-lg-4 col-md-6 story-item" data-category="${story.category}" data-aos="fade-up">
+                        <div class="story-card-modern">
+                            <div class="story-image-wrapper">
+                                <span class="story-category-badge-modern">
+                                    ${story.category === 'prophetes' ? '👳 Prophète' : story.category === 'ramadan' ? '🌙 Ramadan' : '💚 Valeur'}
+                                </span>
+                                <img src="${story.image}" class="story-image" alt="${story.title}">
+                            </div>
+                            <div class="story-content">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h4 class="h5" style="color: var(--gold);">${story.title}</h4>
+                                    <span class="age-badge-modern" style="background: linear-gradient(135deg, ${story.ageColor}, ${story.ageColor}dd);">${story.age}</span>
+                                </div>
+                                ${story.prophet ? `<span class="prophet-badge"><i class="bi bi-person-badge me-1"></i>${story.prophet}</span>` : ''}
+                                <p class="story-summary">${story.summary}</p>
+                                <div class="moral-modern mb-3">
+                                    <i class="bi bi-star-fill me-2" style="color: var(--gold);"></i>
+                                    <small><strong>Morale:</strong> ${story.moral}</small>
+                                </div>
+                                <button class="btn-story" onclick="showFullStory(${story.id})">
+                                    <i class="bi bi-book-half"></i>
+                                    Lire l'histoire complète
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += storyCard;
+            });
+        }
+
+        // Show full story modal
+        function showFullStory(storyId) {
+            const story = stories.find(s => s.id === storyId);
+            if (!story) return;
+            
+            const modal = document.getElementById('storyModal');
+            const modalContent = document.getElementById('modalStoryContent');
+            
+            modalContent.innerHTML = story.fullStory;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close story modal
+        function closeStoryModal() {
+            const modal = document.getElementById('storyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Load quiz
+        function loadQuiz() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = '';
+            
+            quizQuestions.forEach((q, index) => {
+                const quizCard = `
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 50}">
+                        <div class="quiz-card-modern">
+                            <h5 class="mb-3"><span class="badge me-2" style="background: var(--gold); color: var(--dark-bg);">${index + 1}</span>${q.question}</h5>
+                            ${q.options.map((opt, optIndex) => `
+                                <div class="quiz-option-modern" onclick="checkQuizAnswer(this, ${index}, ${optIndex})">
+                                    ${opt}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                quizContainer.innerHTML += quizCard;
+            });
+        }
+
+        // Check quiz answer
+        function checkQuizAnswer(element, questionIndex, optionIndex) {
+            const correctIndex = quizQuestions[questionIndex].correct;
+            const parent = element.parentElement;
+            const options = parent.querySelectorAll('.quiz-option-modern');
+            
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'wrong');
+            });
+            
+            if (optionIndex === correctIndex) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                options[correctIndex].classList.add('correct');
+            }
+        }
+
+        // Reset quiz
+        function resetQuiz() {
+            const options = document.querySelectorAll('.quiz-option-modern');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'wrong');
+            });
+        }
+
+        // Load moral lessons accordion
+        function loadMoralAccordion() {
+            const accordion = document.getElementById('moral-accordion');
+            accordion.innerHTML = '';
+            
+            moralLessons.forEach((lesson, index) => {
+                const item = `
+                    <div class="accordion-modern">
+                        <div class="accordion-header-modern" onclick="toggleAccordion(this)">
+                            <span>
+                                <i class="bi ${lesson.icon} me-2" style="color: ${lesson.color};"></i>
+                                ${lesson.title}
+                            </span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content-modern ${index === 0 ? 'show' : ''}">
+                            ${lesson.content}
+                        </div>
+                    </div>
+                `;
+                accordion.innerHTML += item;
+            });
+        }
+
+        // Toggle accordion
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i:last-child');
+            
+            content.classList.toggle('show');
+            icon.classList.toggle('bi-chevron-down');
+            icon.classList.toggle('bi-chevron-up');
+        }
+
+        // Category filtering
+        function setupCategoryFilter() {
+            const pills = document.querySelectorAll('.category-pill-modern');
+            const stories = document.querySelectorAll('.story-item');
+            
+            pills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    pills.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    stories.forEach(story => {
+                        if (category === 'all' || story.dataset.category === category) {
+                            story.style.display = 'block';
+                            setTimeout(() => {
+                                story.style.opacity = '1';
+                                story.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            story.style.opacity = '0';
+                            story.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                story.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStories();
+            loadQuiz();
+            loadMoralAccordion();
+            setupCategoryFilter();
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeStoryModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
