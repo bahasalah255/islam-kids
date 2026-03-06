@@ -16,41 +16,58 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/theme-modern.css">
     <link rel="stylesheet" href="assets/css/quiz.css">
+    <link rel="stylesheet" href="assets/css/splash-screen.css">
+    <link rel="stylesheet" href="assets/css/pop-bounce.css">
 </head>
 <body>
     
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top navbar-modern">
+    <!-- Navigation Bubble UI -->
+    <nav class="navbar-bubble sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <span>🌙</span> Ramadan Kids Corner
+            <!-- Logo avec Lune Souriante -->
+            <a class="navbar-bubble-brand" href="index.html">
+                <span class="brand-icon">🌙</span>
+                <span class="brand-text">Ramadan Kids</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="activites.html">Activités</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="histoires.html">Histoires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="quiz.html">Quiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="quiz.html" class="btn btn-cta">Jouer</a>
-                    </li>
-                </ul>
-            </div>
+            
+            <!-- Menu Iconographique -->
+            <ul class="navbar-bubble-menu">
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-home" href="index.html">
+                        <span class="nav-bubble-icon">🏠</span>
+                        <span class="nav-bubble-text">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-activities" href="activites.html">
+                        <span class="nav-bubble-icon">🎨</span>
+                        <span class="nav-bubble-text">Activités</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-stories" href="histoires.html">
+                        <span class="nav-bubble-icon">🌙</span>
+                        <span class="nav-bubble-text">Histoires</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-quiz active" href="quiz.html">
+                        <span class="nav-bubble-icon">🎮</span>
+                        <span class="nav-bubble-text">Quiz</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-contact" href="contact.html">
+                        <span class="nav-bubble-icon">📧</span>
+                        <span class="nav-bubble-text">Contact</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <button type="button" id="muteBtn" class="nav-bubble-link sound-enabled" title="Activer/Désactiver le son">
+                        <span class="nav-bubble-icon">🔊</span>
+                    </button>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -211,6 +228,105 @@
         </div>
     </section>
 
+    <!-- Mystery Word Game Section -->
+    <section class="mystery-word-section">
+        <div class="container">
+            <div class="section-header mb-5" data-aos="fade-up">
+                <div class="badge-hero mb-3">
+                    <i class="bi bi-question-diamond-fill me-2"></i>Jeu Éducatif
+                </div>
+                <h2 class="gradient-title-mystery">🔍 Mot Mystère du Ramadan</h2>
+                <p class="text-secondary">Devine le mot caché ! Utilise les indices pour t'aider.</p>
+            </div>
+
+            <div class="mystery-game-container">
+                <!-- Game Card -->
+                <div class="mystery-game-card">
+                    <!-- Word Display -->
+                    <div class="mystery-word-display">
+                        <div class="mystery-word" id="mysteryWord">
+                            <!-- Letters will be generated here -->
+                        </div>
+                        <div class="mystery-hint-text" id="hintText">💡 Catégorie: ?</div>
+                    </div>
+
+                    <!-- Game Stats -->
+                    <div class="mystery-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">💪</span>
+                            <div>
+                                <p class="stat-label">Tentatives</p>
+                                <p class="stat-value" id="mysterAttempts">6</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <p class="stat-label">Indices</p>
+                                <p class="stat-value" id="mysteryHints">3</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <div>
+                                <p class="stat-label">Points</p>
+                                <p class="stat-value" id="mysteryScore">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Keyboard -->
+                    <div class="mystery-keyboard">
+                        <div id="mysterKeyboard" class="keyboard-grid">
+                            <!-- Buttons will be generated here -->
+                        </div>
+                    </div>
+
+                    <!-- Game Controls -->
+                    <div class="mystery-controls">
+                        <button class="btn btn-mystery-hint" id="hintBtn" onclick="misteryWordGame.useHint()">
+                            <i class="bi bi-lightbulb-fill me-2"></i> Indice (💡)
+                        </button>
+                        <button class="btn btn-mystery-new" onclick="misteryWordGame.newGame()">
+                            <i class="bi bi-arrow-clockwise me-2"></i> Nouveau Mot
+                        </button>
+                    </div>
+
+                    <!-- Game Result Message -->
+                    <div class="mystery-result" id="mysteryResult" style="display: none;">
+                        <div class="result-content">
+                            <div class="result-icon" id="resultIcon">🎉</div>
+                            <div class="result-text" id="resultText">Bravo !</div>
+                            <p class="result-message" id="resultMessage">Tu as deviné le mot !</p>
+                            <button class="btn btn-mystery-again" onclick="misteryWordGame.newGame()">
+                                <i class="bi bi-skip-forward me-2"></i> Mot Suivant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Info -->
+                <div class="mystery-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">🎮</div>
+                        <h4>Comment jouer ?</h4>
+                        <p>Clique sur les lettres pour deviner le mot caché. Tu as 6 tentatives !</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💡</div>
+                        <h4>Utilise les indices</h4>
+                        <p>Tu peux utiliser jusqu'à 3 indices pour révéler des lettres progressivement.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🏆</div>
+                        <h4>Gagne des points</h4>
+                        <p>Plus tu réussis vite, plus tu gagneras de points ! Bonne chance !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Quiz Container (Hidden by default) -->
     <section class="section" id="quizContainer" style="display: none;">
         <div class="container">
@@ -352,6 +468,10 @@
     <script src="assets/js/quiz-data.js"></script>
     <script src="assets/js/quiz.js"></script>
     <script src="assets/js/quiz-games.js"></script>
+    <script src="assets/js/mystery-word.js"></script>
+    <script src="assets/js/splash-screen.js"></script>
+        <script src="assets/js/immersive-sound.js"></script>
+    <script src="assets/js/pop-bounce.js"></script>
 
 </body>
 </html>

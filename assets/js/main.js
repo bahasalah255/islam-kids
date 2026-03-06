@@ -295,3 +295,49 @@ window.addEventListener('load', function() {
         body.style.opacity = '1';
     }, 100);
 });
+
+// ===== MASCOT GUIDE =====
+document.addEventListener('DOMContentLoaded', function() {
+    if (!document.querySelector('.kids-mascot-guide')) {
+        const mascot = document.createElement('div');
+        mascot.className = 'kids-mascot-guide';
+        mascot.setAttribute('aria-label', 'Mascotte guide Ramadan Kids');
+        mascot.setAttribute('title', 'Salam! Je suis ta mascotte ✨');
+        mascot.textContent = '🐱';
+        document.body.appendChild(mascot);
+    }
+});
+
+// ===== BUTTON POP SOUND (Prepared feedback) =====
+document.addEventListener('DOMContentLoaded', function() {
+    let audioCtx;
+
+    const playPop = function() {
+        try {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            const oscillator = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            oscillator.type = 'triangle';
+            oscillator.frequency.setValueAtTime(320, audioCtx.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.08);
+
+            gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.09);
+
+            oscillator.connect(gain);
+            gain.connect(audioCtx.destination);
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.09);
+        } catch (error) {
+            console.debug('Pop sound not available:', error);
+        }
+    };
+
+    document.querySelectorAll('.btn').forEach((button) => {
+        button.addEventListener('click', playPop);
+    });
+});

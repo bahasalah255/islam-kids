@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Audio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0A0F1E;
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .test {
+            background: #151E2F;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #FFD966;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            background: #FFD966;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #FFEAA7; }
+        .status { margin-top: 1rem; padding: 0.5rem; background: rgba(46, 204, 113, 0.1); border-radius: 5px; }
+        .error { background: rgba(255, 107, 107, 0.1); color: #FF6B6B; }
+    </style>
+</head>
+<body>
+    <h1>🎵 Test Audio Player</h1>
+    
+    <div class="test">
+        <h3>Test 1: Accès au fichier</h3>
+        <button onclick="testFileAccess()">Tester l'accès au fichier</button>
+        <div class="status" id="status1"></div>
+    </div>
+
+    <div class="test">
+        <h3>Test 2: Lecteur HTML5 simple</h3>
+        <audio id="testAudio" controls preload="metadata">
+            <source src="assets/audio/nouh.mpeg" type="audio/mp3">
+            <source src="assets/audio/nouh.mpeg" type="audio/mpeg">
+            Votre navigateur ne supporte pas HTML5 audio.
+        </audio>
+        <div class="status" id="status2"></div>
+    </div>
+
+    <div class="test">
+        <h3>Test 3: Contrôle JavaScript</h3>
+        <button onclick="playAudio()">▶️ Play</button>
+        <button onclick="pauseAudio()">⏸️ Pause</button>
+        <button onclick="stopAudio()">⏹️ Stop</button>
+        <div class="status" id="status3">Prêt à tester...</div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('testAudio');
+
+        function testFileAccess() {
+            const status = document.getElementById('status1');
+            fetch('assets/audio/nouh.mpeg', { method: 'HEAD' })
+                .then(res => {
+                    status.innerHTML = `✅ Fichier accessible (${res.status} ${res.statusText})`;
+                })
+                .catch(err => {
+                    status.classList.add('error');
+                    status.innerHTML = `❌ Erreur: ${err.message}`;
+                });
+        }
+
+        audio.addEventListener('loadedmetadata', () => {
+            document.getElementById('status2').innerHTML = 
+                `✅ Audio chargé - Durée: ${Math.floor(audio.duration)}s`;
+        });
+
+        audio.addEventListener('error', (e) => {
+            document.getElementById('status2').classList.add('error');
+            document.getElementById('status2').innerHTML = 
+                `❌ Erreur audio: ${audio.error?.message || 'Inconnu'}`;
+        });
+
+        function playAudio() {
+            audio.play().then(() => {
+                document.getElementById('status3').innerHTML = '▶️ Lecture en cours...';
+            }).catch(err => {
+                document.getElementById('status3').classList.add('error');
+                document.getElementById('status3').innerHTML = `❌ Play error: ${err.message}`;
+            });
+        }
+
+        function pauseAudio() {
+            audio.pause();
+            document.getElementById('status3').innerHTML = '⏸️ En pause';
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            document.getElementById('status3').innerHTML = '⏹️ Arrêté';
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            setTimeout(testFileAccess, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+/* ===============================================
+   SPLASH SCREEN - Mascotte Dansante
+   Welcome Animation for Kids
+   =============================================== */
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #7B5EA7, #4A9FE8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: splashFadeOut 0.6s ease-in 2.8s forwards;
+    gap: 2rem;
+}
+
+@keyframes splashFadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Fond avec étoiles animées */
+.splash-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.splash-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkleStarsSplash 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkleStarsSplash {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Confettis */
+.splash-confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFD966;
+    border-radius: 50%;
+    animation: fallConfetti 2.5s ease-in infinite;
+    pointer-events: none;
+}
+
+.splash-confetti.pink { background: #FF6B9D; }
+.splash-confetti.green { background: #43AA8B; }
+.splash-confetti.purple { background: #9B59B6; }
+
+@keyframes fallConfetti {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Conteneur de contenu */
+.splash-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mascotte */
+.splash-mascot {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+    animation: mascotDance 0.8s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes mascotDance {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-3deg);
+    }
+}
+
+/* Bulle de dialogue */
+.splash-dialog {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    animation: bubblePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
+}
+
+@keyframes bubblePop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.splash-dialog::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 0;
+    border-top: 15px solid white;
+}
+
+.splash-dialog h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #7B5EA7;
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.splash-dialog p {
+    color: #4A9FE8;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Boutons */
+.splash-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: buttonsSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
+}
+
+@keyframes buttonsSlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.splash-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.splash-btn-primary {
+    background: linear-gradient(135deg, var(--kids-gold, #F9C74F), #FFE56D);
+    color: #1a1a1a;
+}
+
+.splash-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25), 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.splash-btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .splash-mascot {
+        font-size: 5rem;
+    }
+
+    .splash-dialog {
+        max-width: 280px;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .splash-dialog h2 {
+        font-size: 1.5rem;
+    }
+
+    .splash-dialog p {
+        font-size: 0.95rem;
+    }
+
+    .splash-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .splash-btn {
+        width: 100%;
+    }
+}

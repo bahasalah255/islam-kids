@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/theme-modern.css">
+    <link rel="stylesheet" href="assets/css/splash-screen.css">
+    <link rel="stylesheet" href="assets/css/pop-bounce.css">
     <style>
         :root {
             --dark-bg: #0A0F1E;
@@ -43,33 +48,7 @@
             font-weight: 700;
         }
 
-        /* Modern Glass Navbar */
-        .navbar-modern {
-            background: rgba(21, 30, 47, 0.95) !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            color: var(--gold) !important;
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .nav-link {
-            color: var(--text-secondary) !important;
-            font-weight: 500;
-            padding: 0.5rem 1rem !important;
-            transition: all 0.3s ease;
-            border-radius: 50px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--gold) !important;
-            background: rgba(255, 217, 102, 0.1);
-        }
+        /* Anciens styles navbar supprimés - Bubble UI utilisée maintenant */
 
         .btn-modern {
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
@@ -417,41 +396,307 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* ===============================================
+           AUDIO PLAYER BUBBLE UI - Kids Friendly
+           =============================================== */
+        
+        .audio-player-bubble {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(52, 152, 219, 0.2));
+            border: 3px solid rgba(155, 89, 182, 0.3);
+            border-radius: 30px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(155, 89, 182, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-player-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-icon-wrapper {
+            background: linear-gradient(135deg, var(--purple), var(--purple-light));
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+        }
+
+        .audio-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .audio-info {
+            flex: 1;
+        }
+
+        .audio-title {
+            color: var(--gold);
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .audio-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(10, 15, 30, 0.5);
+            padding: 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .audio-btn i {
+            font-size: 1.5rem;
+            color: var(--dark-bg);
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25), 0 10px 25px rgba(255, 217, 102, 0.4);
+        }
+
+        .audio-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .audio-progress-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .audio-time {
+            color: var(--gold);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            min-width: 40px;
+        }
+
+        .audio-progress-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            overflow: visible;
+        }
+
+        .audio-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--purple), var(--gold));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.1s linear;
+            position: relative;
+        }
+
+        .audio-progress-handle {
+            width: 18px;
+            height: 18px;
+            background: var(--gold);
+            border: 3px solid var(--dark-bg);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+            cursor: grab;
+            box-shadow: 0 2px 8px rgba(255, 217, 102, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .audio-progress-handle:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .audio-progress-handle:active {
+            cursor: grabbing;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .audio-volume-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .audio-volume-btn {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+        }
+
+        .audio-volume-btn i {
+            font-size: 1.2rem;
+        }
+
+        .audio-volume-slider {
+            width: 80px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .audio-volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--emerald);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(46, 204, 113, 0.5);
+        }
+
+        .audio-volume-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: var(--emerald);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(46, 204, 113, 0.5);
+        }
+
+        /* Animation des ondes audio */
+        .audio-wave-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            height: 40px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-wave-animation.playing {
+            opacity: 1;
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: linear-gradient(180deg, var(--gold), var(--purple));
+            border-radius: 10px;
+            animation: wave 0.8s ease-in-out infinite;
+        }
+
+        .wave-bar:nth-child(1) { animation-delay: 0s; height: 15px; }
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 25px; }
+        .wave-bar:nth-child(3) { animation-delay: 0.2s; height: 35px; }
+        .wave-bar:nth-child(4) { animation-delay: 0.3s; height: 25px; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; height: 15px; }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
+        /* Responsive Audio Player */
+        @media (max-width: 768px) {
+            .audio-controls {
+                flex-wrap: wrap;
+            }
+
+            .audio-progress-container {
+                order: 3;
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .audio-volume-slider {
+                width: 60px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Modern Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
+    <!-- Navigation Bubble UI -->
+    <nav class="navbar-bubble sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-moon-stars-fill me-2" style="color: var(--gold);"></i>
-                Ramadan Kids Corner
+            <!-- Logo avec Lune Souriante -->
+            <a class="navbar-bubble-brand" href="index.html">
+                <span class="brand-icon">🌙</span>
+                <span class="brand-text">Ramadan Kids</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background: var(--gold);">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="activites.html">Activités</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="histoires.html">Histoires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="quiz.html">Quiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <a href="quiz.html" class="btn btn-modern ms-lg-3">
-                    <i class="bi bi-patch-question-fill me-2"></i>Quiz
-                </a>
-            </div>
+            
+            <!-- Menu Iconographique -->
+            <ul class="navbar-bubble-menu">
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-home" href="index.html">
+                        <span class="nav-bubble-icon">🏠</span>
+                        <span class="nav-bubble-text">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-activities" href="activites.html">
+                        <span class="nav-bubble-icon">🎨</span>
+                        <span class="nav-bubble-text">Activités</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-stories active" href="histoires.html">
+                        <span class="nav-bubble-icon">🌙</span>
+                        <span class="nav-bubble-text">Histoires</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-quiz" href="quiz.html">
+                        <span class="nav-bubble-icon">🎮</span>
+                        <span class="nav-bubble-text">Quiz</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-contact" href="contact.html">
+                        <span class="nav-bubble-icon">📧</span>
+                        <span class="nav-bubble-text">Contact</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <button type="button" id="muteBtn" class="nav-bubble-link sound-enabled" title="Activer/Désactiver le son">
+                        <span class="nav-bubble-icon">🔊</span>
+                    </button>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -634,6 +879,56 @@
                 moral: "La patience et la confiance en Allah sauvent les croyants.",
                 fullStory: `
                     <h2 class="mb-4" style="color: var(--gold);">L'arche de Nouh (AS) et le grand déluge</h2>
+                    
+                    <!-- Audio Player Bubble UI -->
+                    <div class="audio-player-bubble mb-4">
+                        <div class="audio-player-header">
+                            <div class="audio-icon-wrapper">
+                                <span class="audio-icon">🎧</span>
+                            </div>
+                            <div class="audio-info">
+                                <h5 class="audio-title">Écoute l'histoire !</h5>
+                                <p class="audio-subtitle">Histoire de Nouh (Paix sur lui)</p>
+                            </div>
+                        </div>
+                        
+                        <audio id="storyAudio" preload="metadata" crossorigin="anonymous">
+                            <source src="assets/audio/nouh.mpeg" type="audio/mp3">
+                            <source src="assets/audio/nouh.mpeg" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                        
+                        <div class="audio-controls">
+                            <button class="audio-btn audio-play-btn" onclick="togglePlayPause()" id="playPauseBtn">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            
+                            <div class="audio-progress-container">
+                                <div class="audio-time" id="currentTime">0:00</div>
+                                <div class="audio-progress-bar" id="progressBar">
+                                    <div class="audio-progress-fill" id="progressFill"></div>
+                                    <div class="audio-progress-handle" id="progressHandle"></div>
+                                </div>
+                                <div class="audio-time" id="duration">0:00</div>
+                            </div>
+                            
+                            <div class="audio-volume-control">
+                                <button class="audio-btn audio-volume-btn" onclick="toggleMute()">
+                                    <i class="bi bi-volume-up-fill" id="volumeIcon"></i>
+                                </button>
+                                <input type="range" class="audio-volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                            </div>
+                        </div>
+                        
+                        <div class="audio-wave-animation" id="audioWave">
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                        </div>
+                    </div>
+                    
                     <div class="mb-4">
                         <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&h=400&fit=crop" class="img-fluid rounded-4" alt="Arche de Nouh">
                     </div>
@@ -1251,6 +1546,12 @@
             modalContent.innerHTML = story.fullStory;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Initialize audio AFTER content is injected
+            setTimeout(() => {
+                console.log('🎵 Initializing audio player for story:', story.title);
+                initAudioPlayer();
+            }, 100);
         }
 
         // Close story modal
@@ -1258,6 +1559,32 @@
             const modal = document.getElementById('storyModal');
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
+
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+
+            isPlaying = false;
+
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const audioWave = document.getElementById('audioWave');
+            const modalContent = document.getElementById('modalStoryContent');
+
+            if (playPauseBtn) {
+                playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+            }
+
+            if (audioWave) {
+                audioWave.classList.remove('playing');
+            }
+
+            setTimeout(() => {
+                if (modalContent) {
+                    modalContent.innerHTML = '';
+                }
+                audio = null;
+            }, 250);
         }
 
         // Load quiz
@@ -1379,6 +1706,15 @@
             loadQuiz();
             loadMoralAccordion();
             setupCategoryFilter();
+
+            const modal = document.getElementById('storyModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeStoryModal();
+                    }
+                });
+            }
             
             // Close modal with Escape key
             document.addEventListener('keydown', function(e) {
@@ -1387,6 +1723,176 @@
                 }
             });
         });
+
+        /* ===============================================
+           AUDIO PLAYER CONTROLS - Kids Friendly
+           =============================================== */
+        
+        let audio;
+        let isPlaying = false;
+        let isDragging = false;
+
+        function initAudioPlayer() {
+            audio = document.getElementById('storyAudio');
+            
+            if (!audio) {
+                console.log('❌ Audio element not found');
+                return; // Si pas d'audio sur la page
+            }
+            
+            console.log('✅ Audio element found:', audio);
+
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            const progressHandle = document.getElementById('progressHandle');
+            const currentTimeEl = document.getElementById('currentTime');
+            const durationEl = document.getElementById('duration');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const audioWave = document.getElementById('audioWave');
+
+            // Set initial volume
+            if (audio && volumeSlider) {
+                audio.volume = volumeSlider.value / 100;
+            }
+
+            // Update duration when metadata loaded
+            if (audio) {
+                audio.addEventListener('loadedmetadata', function() {
+                    if (durationEl) {
+                        durationEl.textContent = formatTime(audio.duration);
+                    }
+                });
+
+                // Update progress bar
+                audio.addEventListener('timeupdate', function() {
+                    if (!isDragging && audio.duration) {
+                        const progress = (audio.currentTime / audio.duration) * 100;
+                        if (progressFill) progressFill.style.width = progress + '%';
+                        if (progressHandle) progressHandle.style.left = progress + '%';
+                        if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
+                    }
+                });
+
+                // Audio ended
+                audio.addEventListener('ended', function() {
+                    isPlaying = false;
+                    if (playPauseBtn) {
+                        playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+                    }
+                    if (audioWave) {
+                        audioWave.classList.remove('playing');
+                    }
+                });
+            }
+
+            // Progress bar click
+            if (progressBar && audio) {
+                progressBar.addEventListener('click', function(e) {
+                    const rect = progressBar.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width;
+                    audio.currentTime = percent * audio.duration;
+                });
+            }
+
+            // Progress handle drag
+            if (progressHandle && progressBar && audio) {
+                progressHandle.addEventListener('mousedown', function(e) {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', function(e) {
+                    if (isDragging && progressBar && audio) {
+                        const rect = progressBar.getBoundingClientRect();
+                        let percent = (e.clientX - rect.left) / rect.width;
+                        percent = Math.max(0, Math.min(1, percent));
+                        
+                        if (progressFill) progressFill.style.width = (percent * 100) + '%';
+                        if (progressHandle) progressHandle.style.left = (percent * 100) + '%';
+                        
+                        if (currentTimeEl) {
+                            currentTimeEl.textContent = formatTime(percent * audio.duration);
+                        }
+                    }
+                });
+
+                document.addEventListener('mouseup', function() {
+                    if (isDragging && audio && progressHandle) {
+                        const percent = parseFloat(progressHandle.style.left) / 100;
+                        audio.currentTime = percent * audio.duration;
+                        isDragging = false;
+                    }
+                });
+            }
+
+            // Volume slider
+            if (volumeSlider && audio) {
+                volumeSlider.addEventListener('input', function() {
+                    audio.volume = this.value / 100;
+                    updateVolumeIcon();
+                });
+            }
+        }
+
+        function togglePlayPause() {
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const audioWave = document.getElementById('audioWave');
+            
+            if (!audio) {
+                console.log('❌ Audio not initialized');
+                return;
+            }
+
+            console.log('▶️ Toggle play/pause. Current state:', isPlaying, 'Audio readyState:', audio.readyState);
+
+            if (isPlaying) {
+                audio.pause();
+                playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+                if (audioWave) audioWave.classList.remove('playing');
+            } else {
+                audio.play().catch(err => {
+                    console.error('❌ Play error:', err);
+                });
+                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+                if (audioWave) audioWave.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function toggleMute() {
+            if (!audio) return;
+            
+            audio.muted = !audio.muted;
+            updateVolumeIcon();
+        }
+
+        function updateVolumeIcon() {
+            const volumeIcon = document.getElementById('volumeIcon');
+            const volumeSlider = document.getElementById('volumeSlider');
+            
+            if (!audio || !volumeIcon) return;
+
+            if (audio.muted || audio.volume === 0) {
+                volumeIcon.className = 'bi bi-volume-mute-fill';
+            } else if (audio.volume < 0.5) {
+                volumeIcon.className = 'bi bi-volume-down-fill';
+            } else {
+                volumeIcon.className = 'bi bi-volume-up-fill';
+            }
+        }
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return mins + ':' + (secs < 10 ? '0' : '') + secs;
+        }
     </script>
+    <script src="assets/js/splash-screen.js"></script>
+        <script src="assets/js/immersive-sound.js"></script>
+    <script src="assets/js/pop-bounce.js"></script>
+
 </body>
 </html>

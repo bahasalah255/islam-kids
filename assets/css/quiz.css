@@ -1102,8 +1102,466 @@
     color: #B0C4DE;
 }
 
+/* ===============================================
+   MYSTERY WORD GAME - Mot Mystère
+   =============================================== */
+
+.mystery-word-section {
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(52, 152, 219, 0.1));
+    padding: 5rem 0;
+    border-top: 3px solid rgba(155, 89, 182, 0.2);
+    border-bottom: 3px solid rgba(155, 89, 182, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.mystery-word-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(155, 89, 182, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.badge-hero {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gradient-title-mystery {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 1.5rem 0;
+}
+
+.mystery-game-container {
+    position: relative;
+    z-index: 1;
+}
+
+.mystery-game-card {
+    background: rgba(21, 30, 47, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(155, 89, 182, 0.3);
+    border-radius: 30px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 40px rgba(155, 89, 182, 0.2);
+}
+
+.mystery-game-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 217, 102, 0.1) 0%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 20px); }
+}
+
+/* Word Display */
+.mystery-word-display {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.mystery-word {
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    letter-spacing: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(255, 217, 102, 0.3);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-height: 100px;
+    align-items: center;
+}
+
+.mystery-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(52, 152, 219, 0.2));
+    border: 2px solid rgba(155, 89, 182, 0.3);
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.mystery-letter.revealed {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-color: var(--gold);
+    color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+.mystery-letter.empty {
+    background: transparent;
+    border: none;
+}
+
+.mystery-hint-text {
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 217, 102, 0.1);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Game Stats */
+.mystery-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(52, 152, 219, 0.15));
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid rgba(155, 89, 182, 0.2);
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.stat-value {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin: 0;
+}
+
+/* Keyboard */
+.mystery-keyboard {
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.keyboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    gap: 0.6rem;
+    padding: 1.5rem;
+    background: rgba(10, 15, 30, 0.5);
+    border-radius: 20px;
+    max-width: 100%;
+}
+
+.keyboard-btn {
+    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    color: white;
+    border: none;
+    padding: 0.7rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+}
+
+.keyboard-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.5);
+}
+
+.keyboard-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.keyboard-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #555, #777);
+}
+
+.keyboard-btn.wrong {
+    background: linear-gradient(135deg, #FF6B6B, #FF5252);
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Game Controls */
+.mystery-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.btn-mystery-hint,
+.btn-mystery-new,
+.btn-mystery-again {
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-mystery-hint {
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+    color: white;
+}
+
+.btn-mystery-new {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark-bg);
+}
+
+.btn-mystery-again {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark-bg);
+    min-width: 200px;
+}
+
+.btn-mystery-hint:hover:not(:disabled),
+.btn-mystery-new:hover,
+.btn-mystery-again:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25), 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-mystery-hint:active,
+.btn-mystery-new:active,
+.btn-mystery-again:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-mystery-hint:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #555, #777);
+    color: white;
+}
+
+/* Game Result */
+.mystery-result {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.mystery-result.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.result-content {
+    background: linear-gradient(135deg, var(--dark-surface), var(--dark-surface-2));
+    border: 3px solid var(--gold);
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 400px;
+    animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.result-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: bounce 0.6s ease infinite;
+}
+
+.result-text {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.result-message {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Info Cards */
+.mystery-info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.info-card {
+    background: rgba(21, 30, 47, 0.6);
+    border: 2px solid rgba(155, 89, 182, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(155, 89, 182, 0.5);
+    background: rgba(21, 30, 47, 0.8);
+}
+
+.info-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.info-card h4 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+}
+
+.info-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mystery-word {
+        font-size: 2.5rem;
+        letter-spacing: 0.8rem;
+    }
+
+    .mystery-letter {
+        width: 50px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .mystery-game-card {
+        padding: 1.5rem;
+    }
+
+    .keyboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 0.4rem;
+        padding: 1rem;
+    }
+
+    .keyboard-btn {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .mystery-controls {
+        flex-direction: column;
+    }
+
+    .btn-mystery-hint,
+    .btn-mystery-new,
+    .btn-mystery-again {
+        width: 100%;
+    }
+
+    .gradient-title-mystery {
+        font-size: 2rem;
+    }
+
+    .mystery-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+}
+
 @media (max-width: 576px) {
-    .memory-grid {
+    .mystery-memory-grid {
         grid-template-columns: repeat(2, minmax(80px, 1fr));
     }
 

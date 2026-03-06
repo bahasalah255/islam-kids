@@ -15,41 +15,58 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/theme-modern.css">
+    <link rel="stylesheet" href="assets/css/splash-screen.css">
+    <link rel="stylesheet" href="assets/css/pop-bounce.css">
 </head>
 <body>
     
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top navbar-modern">
+    <!-- Navigation Bubble UI -->
+    <nav class="navbar-bubble sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <span>🌙</span> Ramadan Kids Corner
+            <!-- Logo avec Lune Souriante -->
+            <a class="navbar-bubble-brand" href="index.html">
+                <span class="brand-icon">🌙</span>
+                <span class="brand-text">Ramadan Kids</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="activites.html">Activités</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="histoires.html">Histoires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="quiz.html">Quiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="activites.html" class="btn btn-cta">Commencer</a>
-                    </li>
-                </ul>
-            </div>
+            
+            <!-- Menu Iconographique -->
+            <ul class="navbar-bubble-menu">
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-home" href="index.html">
+                        <span class="nav-bubble-icon">🏠</span>
+                        <span class="nav-bubble-text">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-activities active" href="activites.html">
+                        <span class="nav-bubble-icon">🎨</span>
+                        <span class="nav-bubble-text">Activités</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-stories" href="histoires.html">
+                        <span class="nav-bubble-icon">🌙</span>
+                        <span class="nav-bubble-text">Histoires</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-quiz" href="quiz.html">
+                        <span class="nav-bubble-icon">🎮</span>
+                        <span class="nav-bubble-text">Quiz</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <a class="nav-bubble-link nav-contact" href="contact.html">
+                        <span class="nav-bubble-icon">📧</span>
+                        <span class="nav-bubble-text">Contact</span>
+                    </a>
+                </li>
+                <li class="nav-bubble-item">
+                    <button type="button" id="muteBtn" class="nav-bubble-link sound-enabled" title="Activer/Désactiver le son">
+                        <span class="nav-bubble-icon">🔊</span>
+                    </button>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -480,6 +497,9 @@
     
     <!-- Custom JavaScript -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/splash-screen.js"></script>
+        <script src="assets/js/immersive-sound.js"></script>
+    <script src="assets/js/pop-bounce.js"></script>
 
 </body>
 </html>

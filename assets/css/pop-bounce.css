@@ -1,0 +1,266 @@
+/* ===============================================
+   POP & BOUNCE ANIMATIONS
+   Dynamic entrance effects for kids
+   =============================================== */
+
+/* Animation Pop & Bounce - Apparition */
+@keyframes popBounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+    80% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Bounce au hover */
+@keyframes hoverBounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fade & Slide Up */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotation entrance */
+@keyframes rotateIn {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-45deg);
+    }
+    60% {
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Shine effect */
+@keyframes shineEffect {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* ===============================================
+   APPLY ANIMATIONS TO ELEMENTS
+   =============================================== */
+
+/* Cartes d'activités */
+.activity-card,
+.quiz-card,
+.quiz-game-card,
+.quiz-card-modern,
+.info-card,
+.story-item,
+.moral-modern {
+    animation: popBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Hover effect on cards */
+.activity-card:hover,
+.quiz-card:hover,
+.quiz-game-card:hover,
+.info-card:hover,
+.story-item:hover {
+    animation: hoverBounce 0.4s ease-in-out;
+}
+
+/* Titres et headings */
+h1, h2, h3, h4, h5, h6 {
+    animation: fadeSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Images avec entrance */
+img {
+    animation: popBounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Boutons */
+.btn,
+button {
+    animation: popBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.btn:hover,
+button:hover {
+    animation: hoverBounce 0.4s ease-in-out;
+}
+
+/* Sections */
+.section,
+.hero-section {
+    animation: fadeSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Badge et petits éléments */
+.badge,
+.badge-hero,
+.fun-badge {
+    animation: rotateIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Navbar */
+.navbar-bubble {
+    animation: fadeSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ===============================================
+   STAGGER DELAYS - Cascade d'apparitions
+   =============================================== */
+
+/* Stagger pour les enfants directs */
+.row > * {
+    animation-delay: calc(var(--stagger-index, 0) * 0.15s);
+}
+
+/* Stagger pour les cartes de quiz */
+.quiz-card:nth-child(1) { animation-delay: 0s; }
+.quiz-card:nth-child(2) { animation-delay: 0.15s; }
+.quiz-card:nth-child(3) { animation-delay: 0.3s; }
+.quiz-card:nth-child(4) { animation-delay: 0.45s; }
+.quiz-card:nth-child(5) { animation-delay: 0.6s; }
+.quiz-card:nth-child(6) { animation-delay: 0.75s; }
+
+/* Stagger pour les cartes d'activités */
+.activity-card:nth-child(1) { animation-delay: 0s; }
+.activity-card:nth-child(2) { animation-delay: 0.15s; }
+.activity-card:nth-child(3) { animation-delay: 0.3s; }
+.activity-card:nth-child(4) { animation-delay: 0.45s; }
+
+/* Stagger pour game cards */
+.quiz-game-card:nth-child(1) { animation-delay: 0s; }
+.quiz-game-card:nth-child(2) { animation-delay: 0.15s; }
+.quiz-game-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Stagger pour stories */
+.story-item:nth-child(1) { animation-delay: 0s; }
+.story-item:nth-child(2) { animation-delay: 0.15s; }
+.story-item:nth-child(3) { animation-delay: 0.3s; }
+.story-item:nth-child(4) { animation-delay: 0.45s; }
+.story-item:nth-child(5) { animation-delay: 0.6s; }
+.story-item:nth-child(6) { animation-delay: 0.75s; }
+
+/* Stagger pour info cards */
+.info-card:nth-child(1) { animation-delay: 0s; }
+.info-card:nth-child(2) { animation-delay: 0.15s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+.info-card:nth-child(4) { animation-delay: 0.45s; }
+
+/* ===============================================
+   INTERSECTION OBSERVER - Scroll Trigger
+   =============================================== */
+
+/* Elements à animer au scroll */
+.pop-on-scroll {
+    opacity: 0;
+    animation: popBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.pop-on-scroll.visible {
+    opacity: 1;
+}
+
+/* ===============================================
+   ENHANCED HOVER EFFECTS
+   =============================================== */
+
+.activity-card,
+.quiz-card,
+.quiz-game-card,
+.info-card,
+.story-item {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.activity-card:hover,
+.quiz-card:hover,
+.quiz-game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(155, 89, 182, 0.5);
+}
+
+/* Shine effect sur hover */
+.quiz-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shineEffect 0.5s ease-in-out;
+    border-radius: inherit;
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
+
+@media (max-width: 768px) {
+    /* Réduit les délais sur mobile pour plus de rapidité */
+    .quiz-card:nth-child(1) { animation-delay: 0s; }
+    .quiz-card:nth-child(2) { animation-delay: 0.1s; }
+    .quiz-card:nth-child(3) { animation-delay: 0.2s; }
+    
+    .activity-card:nth-child(1) { animation-delay: 0s; }
+    .activity-card:nth-child(2) { animation-delay: 0.1s; }
+    .activity-card:nth-child(3) { animation-delay: 0.2s; }
+    .activity-card:nth-child(4) { animation-delay: 0.3s; }
+    
+    .quiz-game-card:nth-child(1) { animation-delay: 0s; }
+    .quiz-game-card:nth-child(2) { animation-delay: 0.1s; }
+    .quiz-game-card:nth-child(3) { animation-delay: 0.2s; }
+
+    h1, h2, h3 {
+        animation-delay: 0s !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Animation plus rapide sur petits écrans */
+    .activity-card,
+    .quiz-card,
+    .quiz-game-card,
+    img {
+        animation-duration: 0.4s !important;
+    }
+
+    h1, h2, h3 {
+        animation-duration: 0.5s !important;
+    }
+}
