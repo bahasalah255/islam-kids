@@ -1,0 +1,138 @@
+{
+  "title": "Quiz sur le Ramadan",
+  "description": "Teste tes connaissances sur le mois sacré du Ramadan !",
+  "difficulty": "facile",
+  "icon": "🌙",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Combien de jours dure le Ramadan ?",
+      "options": [
+        "20 jours",
+        "29 ou 30 jours",
+        "40 jours",
+        "25 jours"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Le Ramadan dure 29 ou 30 jours selon l'apparition de la nouvelle lune !",
+      "points": 10
+    },
+    {
+      "id": 2,
+      "question": "Comment s'appelle le repas du soir pendant le Ramadan ?",
+      "options": [
+        "Le petit-déjeuner",
+        "Le déjeuner",
+        "L'Iftar",
+        "Le goûter"
+      ],
+      "correctAnswer": 2,
+      "explanation": "L'Iftar est le repas qui rompt le jeûne au coucher du soleil !",
+      "points": 10
+    },
+    {
+      "id": 3,
+      "question": "Quelle est la fête qui marque la fin du Ramadan ?",
+      "options": [
+        "L'Aïd al-Fitr",
+        "L'Aïd al-Adha",
+        "Le Mawlid",
+        "La fête des lumières"
+      ],
+      "correctAnswer": 0,
+      "explanation": "L'Aïd al-Fitr est la belle fête qui célèbre la fin du Ramadan !",
+      "points": 10
+    },
+    {
+      "id": 4,
+      "question": "Avec quoi les musulmans rompent-ils traditionnellement le jeûne ?",
+      "options": [
+        "Du chocolat",
+        "Des dattes et de l'eau",
+        "Du pain",
+        "Du jus d'orange"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Les dattes et l'eau sont traditionnellement utilisées pour rompre le jeûne, comme le faisait le Prophète !",
+      "points": 10
+    },
+    {
+      "id": 5,
+      "question": "Quel mois du calendrier islamique est le Ramadan ?",
+      "options": [
+        "Le 7ème mois",
+        "Le 9ème mois",
+        "Le 12ème mois",
+        "Le 1er mois"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Le Ramadan est le 9ème mois du calendrier islamique (lunaire) !",
+      "points": 10
+    },
+    {
+      "id": 6,
+      "question": "Comment s'appelle la prière spéciale pendant le Ramadan ?",
+      "options": [
+        "Taraweeh",
+        "Fajr",
+        "Dhuhr",
+        "Maghrib"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Les prières de Taraweeh sont des prières spéciales effectuées pendant les nuits du Ramadan !",
+      "points": 10
+    },
+    {
+      "id": 7,
+      "question": "Qu'est-ce qui est particulièrement important pendant le Ramadan ?",
+      "options": [
+        "Jouer aux jeux vidéo",
+        "La générosité et le partage",
+        "Faire du shopping",
+        "Regarder la télévision"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La générosité, le partage et les bonnes actions sont au cœur du Ramadan !",
+      "points": 10
+    },
+    {
+      "id": 8,
+      "question": "Quelle nuit spéciale se trouve dans les 10 derniers jours du Ramadan ?",
+      "options": [
+        "La nuit de Noël",
+        "Laylat al-Qadr (Nuit du Destin)",
+        "La nuit des étoiles",
+        "La nuit de la pleine lune"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Laylat al-Qadr (la Nuit du Destin) est considérée comme la nuit la plus sacrée de l'année !",
+      "points": 10
+    },
+    {
+      "id": 9,
+      "question": "Comment s'appelle le repas avant l'aube ?",
+      "options": [
+        "Le Suhur",
+        "Le Maghrib",
+        "Le Fajr",
+        "Le Dîner"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Le Suhur est le repas pris avant l'aube pour donner de l'énergie pendant la journée de jeûne !",
+      "points": 10
+    },
+    {
+      "id": 10,
+      "question": "Quel symbole représente souvent le Ramadan ?",
+      "options": [
+        "Une étoile",
+        "Un soleil",
+        "Un croissant de lune",
+        "Un arbre"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Le croissant de lune symbolise le Ramadan car le mois commence avec l'observation de la nouvelle lune !",
+      "points": 10
+    }
+  ]
+}

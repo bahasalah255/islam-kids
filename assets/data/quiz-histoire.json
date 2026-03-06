@@ -1,0 +1,112 @@
+{
+  "title": "Quiz des Histoires",
+  "description": "As-tu bien lu nos histoires ? Teste ta mémoire !",
+  "difficulty": "moyen",
+  "icon": "📖",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Comment s'appelait la petite lune curieuse ?",
+      "options": [
+        "Luna",
+        "Qamar",
+        "Stella",
+        "Sabrina"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Qamar était la petite lune qui voulait comprendre pourquoi les enfants étaient heureux pendant le Ramadan !",
+      "points": 10
+    },
+    {
+      "id": 2,
+      "question": "Que plante Youssef dans son jardin magique ?",
+      "options": [
+        "Des légumes",
+        "Des fleurs ordinaires",
+        "Des graines de bonnes actions",
+        "Des arbres"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Chaque bonne action de Youssef faisait pousser une belle fleur dans son jardin magique !",
+      "points": 10
+    },
+    {
+      "id": 3,
+      "question": "De quelle couleur brillait la lanterne de Fatima quand elle partageait ?",
+      "options": [
+        "En or",
+        "En rouge",
+        "En bleu",
+        "En vert"
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lanterne de Fatima brillait en or quand elle partageait son goûter avec une amie !",
+      "points": 10
+    },
+    {
+      "id": 4,
+      "question": "Quel était le nom du petit oiseau généreux ?",
+      "options": [
+        "Bilal",
+        "Omar",
+        "Ali",
+        "Hassan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Bilal était le petit oiseau qui a partagé ses graines avec un vieil oiseau affamé !",
+      "points": 10
+    },
+    {
+      "id": 5,
+      "question": "Que signifie le nom 'Sabrina' en arabe ?",
+      "options": [
+        "Joie",
+        "Patience",
+        "Lumière",
+        "Bonté"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sabrina signifie 'patience' en arabe, et c'était le nom de l'étoile qui brillait plus fort chaque jour !",
+      "points": 10
+    },
+    {
+      "id": 6,
+      "question": "Quelle leçon la petite lune Qamar a-t-elle apprise ?",
+      "options": [
+        "Il faut être grand pour faire la différence",
+        "Même les petites lumières peuvent faire une grande différence",
+        "Les lunes sont plus importantes que les étoiles",
+        "Le Ramadan dure toute l'année"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Qamar a compris que même si elle était petite, elle pouvait faire briller le monde par ses bonnes actions !",
+      "points": 10
+    },
+    {
+      "id": 7,
+      "question": "Qu'est-il arrivé à Bilal après avoir partagé ses graines ?",
+      "options": [
+        "Il a perdu tout ce qu'il avait",
+        "Son nid s'est rempli de graines",
+        "Il est parti ailleurs",
+        "Il a trouvé un trésor"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Les autres oiseaux, touchés par sa générosité, ont tous partagé avec lui et son nid s'est rempli de graines !",
+      "points": 10
+    },
+    {
+      "id": 8,
+      "question": "Combien de couleurs différentes la lanterne de Fatima pouvait-elle avoir ?",
+      "options": [
+        "3 couleurs",
+        "5 couleurs",
+        "Toutes les couleurs de l'arc-en-ciel",
+        "Une seule couleur"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Fatima voulait que sa lanterne brille de toutes les couleurs de l'arc-en-ciel grâce à ses bonnes actions !",
+      "points": 10
+    }
+  ]
+}

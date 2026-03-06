@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Activités pour enfants - Coloriage, recettes et bricolages du Ramadan">
+    <title>Activités - Ramadan Kids Corner</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span>🌙</span> Ramadan Kids Corner
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activites.html">Activités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histoires.html">Histoires</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quiz.html">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="activites.html" class="btn btn-cta">Commencer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title">Activités Amusantes ! 🎨</h1>
+                    <p class="hero-subtitle">Découvre plein d'activités créatives pour célébrer le Ramadan en t'amusant !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recettes Section -->
+    <section class="section" style="background-color: white;" id="recettes">
+        <div class="container">
+            <h2 class="section-title">Recettes Faciles <span class="badge badge-green">Cuisine</span></h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=300&fit=crop" 
+                             alt="Dattes" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Dattes au Chocolat</h3>
+                            <p class="card-text">Une recette simple et délicieuse pour préparer des dattes enrobées de chocolat !</p>
+                            <span class="badge badge-green mb-3">Recette</span>
+                            <div class="mb-3">
+                                <small><i class="bi bi-clock me-1"></i> 15 min</small>
+                                <small class="ms-3"><i class="bi bi-people me-1"></i> 4 personnes</small>
+                            </div>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recette1">
+                                <i class="bi bi-book me-2"></i> Voir la recette
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&h=300&fit=crop" 
+                             alt="Smoothie" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Smoothie Arc-en-Ciel</h3>
+                            <p class="card-text">Un délicieux smoothie coloré pour te rafraîchir pendant le Ramadan !</p>
+                            <span class="badge badge-green mb-3">Recette</span>
+                            <div class="mb-3">
+                                <small><i class="bi bi-clock me-1"></i> 10 min</small>
+                                <small class="ms-3"><i class="bi bi-people me-1"></i> 2 personnes</small>
+                            </div>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recette2">
+                                <i class="bi bi-book me-2"></i> Voir la recette
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" 
+                             alt="Mini pizzas" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Mini Pizzas de L'Iftar</h3>
+                            <p class="card-text">Des mini pizzas faciles à faire pour partager le repas en famille !</p>
+                            <span class="badge badge-green mb-3">Recette</span>
+                            <div class="mb-3">
+                                <small><i class="bi bi-clock me-1"></i> 20 min</small>
+                                <small class="ms-3"><i class="bi bi-people me-1"></i> 6 personnes</small>
+                            </div>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recette3">
+                                <i class="bi bi-book me-2"></i> Voir la recette
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bricolage Section -->
+    <section class="section" id="bricolage">
+        <div class="container">
+            <h2 class="section-title">Bricolages Créatifs <span class="badge badge-purple">DIY</span></h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=300&fit=crop" 
+                             alt="Calendrier du Ramadan" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Calendrier du Ramadan</h3>
+                            <p class="card-text">Fabrique ton propre calendrier pour compter les jours du Ramadan !</p>
+                            <span class="badge badge-purple mb-3">Bricolage</span>
+                            <br>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bricolage1">
+                                <i class="bi bi-scissors me-2"></i> Instructions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=400&h=300&fit=crop" 
+                             alt="Guirlande étoiles" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Guirlande d'Étoiles</h3>
+                            <p class="card-text">Crée une belle guirlande d'étoiles et de lunes pour décorer ta chambre !</p>
+                            <span class="badge badge-purple mb-3">Bricolage</span>
+                            <br>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bricolage2">
+                                <i class="bi bi-scissors me-2"></i> Instructions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=300&fit=crop" 
+                             alt="Marque-page" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Marque-page Personnalisé</h3>
+                            <p class="card-text">Fabrique un joli marque-page pour lire tes histoires du Ramadan !</p>
+                            <span class="badge badge-purple mb-3">Bricolage</span>
+                            <br>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bricolage3">
+                                <i class="bi bi-scissors me-2"></i> Instructions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for Recipes -->
+    <!-- Modal Recette 1 -->
+    <div class="modal fade" id="recette1" tabindex="-1" aria-labelledby="recette1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #43AA8B, #F9C74F); color: white;">
+                    <h5 class="modal-title" id="recette1Label">🍫 Dattes au Chocolat</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold mb-3">Ingrédients :</h6>
+                    <ul>
+                        <li>12 dattes dénoyautées</li>
+                        <li>150g de chocolat noir</li>
+                        <li>Amandes effilées (optionnel)</li>
+                        <li>Noix de coco râpée (optionnel)</li>
+                    </ul>
+                    
+                    <h6 class="fw-bold mb-3 mt-4">Préparation :</h6>
+                    <ol>
+                        <li>Fais fondre le chocolat au bain-marie (avec l'aide d'un adulte)</li>
+                        <li>Trempe chaque datte dans le chocolat fondu</li>
+                        <li>Saupoudre d'amandes ou de noix de coco</li>
+                        <li>Place au réfrigérateur 30 minutes</li>
+                        <li>Déguste avec plaisir !</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Recette 2 -->
+    <div class="modal fade" id="recette2" tabindex="-1" aria-labelledby="recette2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #43AA8B, #F9C74F); color: white;">
+                    <h5 class="modal-title" id="recette2Label">🌈 Smoothie Arc-en-Ciel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold mb-3">Ingrédients :</h6>
+                    <ul>
+                        <li>1 banane</li>
+                        <li>1 tasse de fraises</li>
+                        <li>1 tasse de lait (ou lait végétal)</li>
+                        <li>1 cuillère de miel</li>
+                        <li>Des glaçons</li>
+                    </ul>
+                    
+                    <h6 class="fw-bold mb-3 mt-4">Préparation :</h6>
+                    <ol>
+                        <li>Mets tous les fruits dans le blender</li>
+                        <li>Ajoute le lait et le miel</li>
+                        <li>Ajoute quelques glaçons</li>
+                        <li>Mixe pendant 30 secondes</li>
+                        <li>Verse dans un grand verre et savoure !</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Recette 3 -->
+    <div class="modal fade" id="recette3" tabindex="-1" aria-labelledby="recette3Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #43AA8B, #F9C74F); color: white;">
+                    <h5 class="modal-title" id="recette3Label">🍕 Mini Pizzas de L'Iftar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold mb-3">Ingrédients :</h6>
+                    <ul>
+                        <li>6 pains pita ou tortillas</li>
+                        <li>1 tasse de sauce tomate</li>
+                        <li>2 tasses de fromage râpé</li>
+                        <li>Garnitures au choix (olives, champignons, poivrons)</li>
+                    </ul>
+                    
+                    <h6 class="fw-bold mb-3 mt-4">Préparation :</h6>
+                    <ol>
+                        <li>Préchauffe le four à 180°C</li>
+                        <li>Étale la sauce tomate sur chaque pain</li>
+                        <li>Ajoute le fromage et tes garnitures préférées</li>
+                        <li>Enfourne pendant 10-12 minutes</li>
+                        <li>Laisse refroidir un peu avant de déguster !</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for Bricolage -->
+    <!-- Modal Bricolage 1 -->
+    <div class="modal fade" id="bricolage1" tabindex="-1" aria-labelledby="bricolage1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #7B5EA7, #F9844A); color: white;">
+                    <h5 class="modal-title" id="bricolage1Label">📅 Calendrier du Ramadan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold mb-3">Matériel nécessaire :</h6>
+                    <ul>
+                        <li>Carton épais ou papier bristol (30x40 cm)</li>
+                        <li>Feutres ou crayons de couleur</li>
+                        <li>Papier de couleur (doré, argenté)</li>
+                        <li>Colle et ciseaux</li>
+                        <li>30 petites enveloppes ou pochettes</li>
+                        <li>Autocollants étoiles et lunes</li>
+                    </ul>
+                    
+                    <h6 class="fw-bold mb-3 mt-4">Instructions (Étape par étape) :</h6>
+                    <ol>
+                        <li><strong>Prépare la base :</strong> Découpe ton carton aux dimensions souhaitées. Peins-le ou recouvre-le de papier de couleur (bleu nuit, violet...).</li>
+                        
+                        <li><strong>Crée le titre :</strong> Écris en haut du calendrier "Mon Calendrier du Ramadan 2026" avec de beaux lettrages colorés.</li>
+                        
+                        <li><strong>Découpe les étoiles/lunes :</strong> Dans du papier doré, découpe 30 croissants de lune ou étoiles (un pour chaque jour du Ramadan).</li>
+                        
+                        <li><strong>Numérotation :</strong> Numérote chaque forme de 1 à 30. Colle-les en rangées sur ton calendrier.</li>
+                        
+                        <li><strong>Ajoute les pochettes :</strong> Colle une petite enveloppe sous chaque numéro. Tu pourras y glisser un message, une bonne action, ou un petit dessin chaque jour !</li>
+                        
+                        <li><strong>Décoration finale :</strong> Ajoute des autocollants, dessine des motifs islamiques (mosquées, lanternes, étoiles...) tout autour.</li>
+                        
+                        <li><strong>Accroche-le :</strong> Fais deux trous en haut et passe un ruban pour accrocher ton calendrier dans ta chambre !</li>
+                    </ol>
+                    
+                    <div class="alert alert-info mt-3" role="alert">
+                        <i class="bi bi-lightbulb-fill me-2"></i> <strong>Astuce :</strong> Chaque soir, après l'iftar, décore l'étoile du jour ou colorie-la pour marquer qu'il est passé !
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bricolage 2 -->
+    <div class="modal fade" id="bricolage2" tabindex="-1" aria-labelledby="bricolage2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #7B5EA7, #F9844A); color: white;">
+                    <h5 class="modal-title" id="bricolage2Label">⭐ Guirlande d'Étoiles</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold mb-3">Matériel nécessaire :</h6>
+                    <ul>
+                        <li>Papier cartonné de couleurs (jaune, doré, argenté)</li>
+                        <li>Gabarit d'étoiles et de lunes (à imprimer ou tracer)</li>
+                        <li>Ciseaux</li>
+                        <li>Ficelle ou ruban (2-3 mètres)</li>
+                        <li>Colle ou scotch double-face</li>
+                        <li>Paillettes (optionnel)</li>
+                        <li>Perforatrice</li>
+                    </ul>
+                    
+                    <h6 class="fw-bold mb-3 mt-4">Instructions (Étape par étape) :</h6>
+                    <ol>
+                        <li><strong>Trace les formes :</strong> Sur ton papier cartonné, trace environ 15-20 étoiles et 10 croissants de lune de différentes tailles (grande, moyenne, petite).</li>
+                        
+                        <li><strong>Découpe soigneusement :</strong> Découpe toutes tes formes avec précaution. Demande de l'aide si besoin !</li>
+                        
+                        <li><strong>Décore tes formes :</strong> Colorie les bords avec des feutres dorés, ajoute des paillettes, dessine des petits motifs... Sois créatif !</li>
+                        
+                        <li><strong>Fais des trous :</strong> Avec la perforatrice, fais 2 trous sur les côtés opposés de chaque forme (gauche et droite).</li>
+                        
+                        <li><strong>Enfile sur la ficelle :</strong> Passe ta ficelle à travers les trous. Alterne étoiles et lunes. Laisse 5-10 cm d'espace entre chaque forme.</li>
+                        
+                        <li><strong>Fixe bien :</strong> Fais un petit nœud ou mets une goutte de colle après chaque forme pour qu'elles ne glissent pas.</li>
+                        
+                        <li><strong>Accroche ta guirlande :</strong> Suspends ta jolie guirlande dans ta chambre, au-dessus de ton lit, ou sur les murs du salon !</li>
+                    </ol>
+                    
+                    <div class="alert alert-info mt-3" role="alert">
+                        <i class="bi bi-lightbulb-fill me-2"></i> <strong>Astuce :</strong> Tu peux fabriquer plusieurs guirlandes de différentes couleurs et les superposer pour un effet magique !
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bricolage 3 -->
+    <div class="modal fade" id="bricolage3" tabindex="-1" aria-labelledby="bricolage3Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #7B5EA7, #F9844A); color: white;">
+                    <h5 class="modal-title" id="bricolage3Label">📖 Marque-page Personnalisé</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold mb-3">Matériel nécessaire :</h6>
+                    <ul>
+                        <li>Carton fin ou papier épais (15 x 5 cm)</li>
+                        <li>Feutres, crayons de couleur, ou peinture</li>
+                        <li>Rubans colorés (15 cm de long)</li>
+                        <li>Perforatrice</li>
+                        <li>Autocollants islamiques (étoiles, mosquées, lanternes)</li>
+                        <li>Papier transparent adhésif (pour plastifier, optionnel)</li>
+                        <li>Règle et crayon à papier</li>
+                    </ul>
+                    
+                    <h6 class="fw-bold mb-3 mt-4">Instructions (Étape par étape) :</h6>
+                    <ol>
+                        <li><strong>Découpe la base :</strong> Découpe un rectangle de carton de 15 cm de long sur 5 cm de large. Arrondis les coins pour un joli effet.</li>
+                        
+                        <li><strong>Trace les bordures :</strong> Avec une règle, trace une jolie bordure tout autour à 0,5 cm du bord. Utilise des motifs (zigzag, points, vagues...).</li>
+                        
+                        <li><strong>Dessine ton motif principal :</strong> Au centre du marque-page, dessine :<br>
+                            - Un croissant de lune avec une étoile<br>
+                            - Une mosquée<br>
+                            - Une lanterne du Ramadan<br>
+                            - Ou écris une belle citation comme "Ramadan Moubarak"</li>
+                        
+                        <li><strong>Colorie et décore :</strong> Utilise tes plus belles couleurs ! Ajoute des paillettes, des autocollants, fais briller ton marque-page !</li>
+                        
+                        <li><strong>Plastifie (optionnel) :</strong> Si tu as du papier adhésif transparent, recouvre ton marque-page pour le protéger et le rendre plus solide.</li>
+                        
+                        <li><strong>Fais un trou :</strong> Avec la perforatrice, fais un trou en haut du marque-page (au centre, à 1 cm du bord).</li>
+                        
+                        <li><strong>Ajoute le ruban :</strong> Passe un joli ruban dans le trou et fais un nœud. Laisse le ruban dépasser de 10 cm.</li>
+                        
+                        <li><strong>Utilise-le :</strong> Ton marque-page est prêt ! Utilise-le pour marquer ta page dans tes livres d'histoires du Ramadan !</li>
+                    </ol>
+                    
+                    <div class="alert alert-info mt-3" role="alert">
+                        <i class="bi bi-lightbulb-fill me-2"></i> <strong>Astuce :</strong> Fabrique plusieurs marque-pages et offre-les à tes amis et ta famille comme cadeaux du Ramadan !
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>🌙 Ramadan Kids Corner</h5>
+                    <p>Un espace éducatif dédié aux enfants pour découvrir et célébrer le mois sacré du Ramadan en s'amusant !</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Liens Rapides</h5>
+                    <a href="index.html">Accueil</a>
+                    <a href="activites.html">Activités</a>
+                    <a href="histoires.html">Histoires</a>
+                    <a href="quiz.html">Quiz</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Suivez-nous</h5>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                    <p class="mt-3">
+                        <i class="bi bi-envelope me-2"></i> contact@ramadankids.com<br>
+                        <i class="bi bi-telephone me-2"></i> +33 1 23 45 67 89
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 Ramadan Kids Corner. Tous droits réservés. Fait avec ❤️ pour nos enfants.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

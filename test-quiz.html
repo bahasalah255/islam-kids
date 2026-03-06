@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Quiz</title>
+</head>
+<body>
+    <h1>Test de Chargement des Quiz</h1>
+    <div id="result"></div>
+
+    <script src="assets/js/quiz-data.js"></script>
+    <script>
+        const resultDiv = document.getElementById('result');
+        
+        if (typeof QUIZ_DATA !== 'undefined') {
+            resultDiv.innerHTML = `
+                <p style="color: green; font-weight: bold;">✓ QUIZ_DATA chargé avec succès !</p>
+                <pre>${JSON.stringify(Object.keys(QUIZ_DATA), null, 2)}</pre>
+                <h2>Quiz disponibles :</h2>
+                <ul>
+                    ${Object.entries(QUIZ_DATA).map(([key, quiz]) => 
+                        `<li><strong>${quiz.title}</strong> - ${quiz.questions.length} questions (${quiz.difficulty})</li>`
+                    ).join('')}
+                </ul>
+            `;
+        } else {
+            resultDiv.innerHTML = '<p style="color: red; font-weight: bold;">✗ ERREUR : QUIZ_DATA n\'est pas défini !</p>';
+        }
+    </script>
+</body>
+</html>

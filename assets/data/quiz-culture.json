@@ -1,0 +1,86 @@
+{
+  "title": "Quiz Culture Générale",
+  "description": "Découvre des faits intéressants sur l'Islam et le monde musulman !",
+  "difficulty": "difficile",
+  "icon": "🌍",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Dans combien de pays du monde célèbre-t-on le Ramadan ?",
+      "options": [
+        "Dans 10 pays",
+        "Dans 50 pays",
+        "Dans plus de 100 pays",
+        "Dans seulement les pays arabes"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Le Ramadan est célébré dans plus de 100 pays à travers le monde entier !",
+      "points": 15
+    },
+    {
+      "id": 2,
+      "question": "Quelle est la ville sainte vers laquelle les musulmans prient ?",
+      "options": [
+        "Jérusalem",
+        "La Mecque",
+        "Médine",
+        "Le Caire"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Mecque (Makkah) en Arabie Saoudite est la ville sainte vers laquelle tous les musulmans se tournent pour prier !",
+      "points": 15
+    },
+    {
+      "id": 3,
+      "question": "Comment dit-on 'Paix' en arabe ?",
+      "options": [
+        "Salam",
+        "Shukran",
+        "Marhaba",
+        "Habibi"
+      ],
+      "correctAnswer": 0,
+      "explanation": "'Salam' signifie 'Paix' en arabe, c'est pourquoi on dit 'As-Salam Alaykoum' (Que la paix soit avec vous) !",
+      "points": 15
+    },
+    {
+      "id": 4,
+      "question": "Combien y a-t-il de piliers de l'Islam ?",
+      "options": [
+        "3 piliers",
+        "5 piliers",
+        "7 piliers",
+        "10 piliers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Il y a 5 piliers de l'Islam : la profession de foi, la prière, la charité, le jeûne du Ramadan et le pèlerinage !",
+      "points": 15
+    },
+    {
+      "id": 5,
+      "question": "Quelle est la couleur traditionnellement associée à l'Islam ?",
+      "options": [
+        "Le rouge",
+        "Le bleu",
+        "Le vert",
+        "Le jaune"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Le vert est souvent associé à l'Islam car c'est la couleur de la nature, de la vie et du paradis !",
+      "points": 15
+    },
+    {
+      "id": 6,
+      "question": "Quel livre sacré les musulmans lisent-ils particulièrement pendant le Ramadan ?",
+      "options": [
+        "La Bible",
+        "Le Coran",
+        "La Torah",
+        "Les Védas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Le Coran est le livre sacré de l'Islam, révélé au Prophète Muhammad pendant le mois de Ramadan !",
+      "points": 15
+    }
+  ]
+}

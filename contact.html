@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez Ramadan Kids Corner - Partagez vos idées et histoires">
+    <title>Contact - Ramadan Kids Corner</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span>🌙</span> Ramadan Kids Corner
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activites.html">Activités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histoires.html">Histoires</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quiz.html">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="activites.html" class="btn btn-cta">Commencer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title">Contacte-Nous ! 💌</h1>
+                    <p class="hero-subtitle">Partage tes idées, tes histoires ou pose-nous tes questions !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card p-4">
+                        <h2 class="mb-4">📝 Envoie-nous un Message</h2>
+                        <p class="mb-4">
+                            Remplis ce formulaire et nous te répondrons très vite ! Demande à un adulte de t'aider 
+                            si nécessaire.
+                        </p>
+                        
+                        <form id="contactForm" novalidate>
+                            <!-- Name Field -->
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-bold">
+                                    <i class="bi bi-person-circle me-2"></i> Ton Prénom
+                                </label>
+                                <input type="text" class="form-control" id="name" name="name" 
+                                       placeholder="Comment tu t'appelles ?" required>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bold">
+                                    <i class="bi bi-envelope me-2"></i> Email de tes Parents
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                       placeholder="exemple@email.com" required>
+                            </div>
+
+                            <!-- Age Field -->
+                            <div class="mb-3">
+                                <label for="age" class="form-label fw-bold">
+                                    <i class="bi bi-cake2 me-2"></i> Ton Âge
+                                </label>
+                                <select class="form-control" id="age" name="age" required>
+                                    <option value="">Choisis ton âge...</option>
+                                    <option value="6">6 ans</option>
+                                    <option value="7">7 ans</option>
+                                    <option value="8">8 ans</option>
+                                    <option value="9">9 ans</option>
+                                    <option value="10">10 ans</option>
+                                    <option value="11">11 ans</option>
+                                    <option value="12">12 ans</option>
+                                    <option value="13+">Plus de 12 ans</option>
+                                </select>
+                            </div>
+
+                            <!-- Subject Field -->
+                            <div class="mb-3">
+                                <label for="subject" class="form-label fw-bold">
+                                    <i class="bi bi-chat-dots me-2"></i> Sujet
+                                </label>
+                                <select class="form-control" id="subject" name="subject" required>
+                                    <option value="">De quoi veux-tu parler ?</option>
+                                    <option value="question">J'ai une question</option>
+                                    <option value="story">Je veux partager mon histoire</option>
+                                    <option value="idea">J'ai une idée d'activité</option>
+                                    <option value="feedback">J'aime votre site !</option>
+                                    <option value="other">Autre chose</option>
+                                </select>
+                            </div>
+
+                            <!-- Message Field -->
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-bold">
+                                    <i class="bi bi-pencil-square me-2"></i> Ton Message
+                                </label>
+                                <textarea class="form-control" id="message" name="message" rows="5" 
+                                          placeholder="Écris ton message ici..." required></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-send me-2"></i> Envoyer mon Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Info & Map -->
+                <div class="col-lg-6">
+                    <!-- Contact Info Cards -->
+                    <div class="card mb-4 p-4" style="background: linear-gradient(135deg, #F9C74F 0%, #F9844A 100%); color: white;">
+                        <h3 class="mb-4">📞 Nos Coordonnées</h3>
+                        <div class="mb-3">
+                            <h5><i class="bi bi-envelope-fill me-2"></i> Email</h5>
+                            <p>contact@ramadankids.com</p>
+                        </div>
+                        <div class="mb-3">
+                            <h5><i class="bi bi-telephone-fill me-2"></i> Téléphone</h5>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                        <div class="mb-3">
+                            <h5><i class="bi bi-geo-alt-fill me-2"></i> Adresse</h5>
+                            <p>123 Rue du Ramadan<br>75001 Paris, France</p>
+                        </div>
+                        <div>
+                            <h5><i class="bi bi-clock-fill me-2"></i> Horaires</h5>
+                            <p>Lundi - Vendredi : 9h - 18h<br>
+                            Samedi - Dimanche : 10h - 16h</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="card p-4 mb-4">
+                        <h3 class="mb-3">🌟 Suis-nous sur les Réseaux</h3>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#" class="btn btn-primary" style="min-width: 120px;">
+                                <i class="bi bi-facebook me-2"></i> Facebook
+                            </a>
+                            <a href="#" class="btn btn-danger" style="min-width: 120px; background-color: #E4405F; border: none;">
+                                <i class="bi bi-instagram me-2"></i> Instagram
+                            </a>
+                            <a href="#" class="btn btn-info" style="min-width: 120px; background-color: #1DA1F2; border: none;">
+                                <i class="bi bi-twitter me-2"></i> Twitter
+                            </a>
+                            <a href="#" class="btn btn-danger" style="min-width: 120px; background-color: #FF0000; border: none;">
+                                <i class="bi bi-youtube me-2"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9914406081493!2d2.292292615674934!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fec70fb1f8d%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">❓ Questions Fréquentes</h2>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    Les activités sont-elles vraiment gratuites ?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        Oui ! Toutes nos activités, histoires et ressources sont 100% gratuites. 
+                                        Tu peux télécharger tous les coloriages et lire toutes les histoires sans payer 
+                                        quoi que ce soit !
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    Puis-je partager mes propres histoires ?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        Absolument ! Nous adorons recevoir les histoires créées par les enfants. 
+                                        Utilise le formulaire ci-dessus pour nous envoyer ton histoire. Avec la permission 
+                                        de tes parents, nous pourrions la publier sur notre site !
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Y aura-t-il de nouvelles activités ?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        Oui ! Nous ajoutons régulièrement de nouvelles activités, histoires et recettes. 
+                                        Reviens nous voir souvent pour découvrir les nouveautés !
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Mes parents peuvent-ils aussi utiliser le site ?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        Bien sûr ! Nos activités sont parfaites pour toute la famille. Les parents peuvent 
+                                        aider les plus jeunes avec les recettes et les bricolages. C'est encore plus amusant 
+                                        quand on fait les activités ensemble !
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background: linear-gradient(135deg, #7B5EA7 0%, #43AA8B 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center text-white">
+                    <h2 class="display-5 fw-bold mb-4">Tu as une Question ?</h2>
+                    <p class="lead mb-4">
+                        N'hésite pas à nous contacter ! Nous adorons recevoir tes messages et répondre à toutes 
+                        tes questions sur le Ramadan.
+                    </p>
+                    <a href="#contactForm" class="btn btn-light btn-lg">
+                        <i class="bi bi-arrow-up me-2"></i> Remplir le Formulaire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>🌙 Ramadan Kids Corner</h5>
+                    <p>Un espace éducatif dédié aux enfants pour découvrir et célébrer le mois sacré du Ramadan en s'amusant !</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Liens Rapides</h5>
+                    <a href="index.html">Accueil</a>
+                    <a href="activites.html">Activités</a>
+                    <a href="histoires.html">Histoires</a>
+                    <a href="quiz.html">Quiz</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Suivez-nous</h5>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                    <p class="mt-3">
+                        <i class="bi bi-envelope me-2"></i> contact@ramadankids.com<br>
+                        <i class="bi bi-telephone me-2"></i> +33 1 23 45 67 89
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 Ramadan Kids Corner. Tous droits réservés. Fait avec ❤️ pour nos enfants.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
